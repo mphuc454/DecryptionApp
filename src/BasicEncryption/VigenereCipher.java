@@ -2,9 +2,8 @@ package BasicEncryption;
 
 public class VigenereCipher {
     public static void main(String[] args) {
-       String key = keyGenerator("AKKKK", "SU");
-        System.out.println(key);
-        String kq = decrypt("AKKKK", key);
+       String key = keyGenerator("á à ấ Z%$yldi Vaệt Fum", "SUA");
+        String kq = decrypt("á à ấ Z%$yldi Vaệt Fum", key);
         System.out.println(kq);
     }
     public static String keyGenerator(String txt, String K){
@@ -21,33 +20,43 @@ public class VigenereCipher {
         }
         return builderKey.toString();
     }
-    public static String encrypt(String txt, String k){
+public static String encrypt(String txt, String k) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < txt.length(); i++) {
             char myText = txt.charAt(i);
-            if(Character.isUpperCase(myText)){
-                builder.append((char) ((myText - 'A' + k.charAt(i) - 'A') % 26 + 'A'));
-            }else if(Character.isLowerCase(myText)){
-                builder.append((char) ((myText - 'a' + k.charAt(i) - 'a') % 26 + 'a'));
-            }else{
+            if (isAsciiUpper(myText)) {
+                char keyChar = Character.toUpperCase(k.charAt(i));
+                builder.append((char) ((myText - 'A' + keyChar - 'A') % 26 + 'A'));
+            } else if (isAsciiLower(myText)) {
+                char keyChar = Character.toLowerCase(k.charAt(i));
+                builder.append((char) ((myText - 'a' + keyChar - 'a') % 26 + 'a'));
+            } else {
                 builder.append(myText);
             }
         }
         return builder.toString();
     }
-    public static String decrypt(String txt, String k){
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < txt.length(); i++) {
-            char myText = txt.charAt(i);
-            if(Character.isUpperCase(myText)){
-                builder.append((char) ((myText - 'A' - (k.charAt(i) - 'A') + 26) % 26 + 'A'));
-            }else if(Character.isLowerCase(myText)){
-                builder.append((char) ((myText - 'a' - (k.charAt(i) - 'a') + 26) % 26 + 'a'));
-            }else{
-                builder.append(myText);
-            }
-        }
-        return builder.toString();
 
+public static String decrypt(String txt, String k) {
+    StringBuilder builder = new StringBuilder();
+    for (int i = 0; i < txt.length(); i++) {
+        char myText = txt.charAt(i);
+        if (isAsciiUpper(myText)) {
+            char keyChar = Character.toUpperCase(k.charAt(i));
+            builder.append((char) ((myText - 'A' - (keyChar - 'A') + 26) % 26 + 'A'));
+        } else if (isAsciiLower(myText)) {
+            char keyChar = Character.toLowerCase(k.charAt(i));
+            builder.append((char) ((myText - 'a' - (keyChar - 'a') + 26) % 26 + 'a'));
+        } else {
+            builder.append(myText);
+        }
+    }
+    return builder.toString();
+}
+    private static boolean isAsciiUpper(char c) {
+        return  c >= 'A' && c <= 'Z';
+    }
+    private static boolean isAsciiLower(char c) {
+        return c >= 'a' && c <= 'z';
     }
 }
