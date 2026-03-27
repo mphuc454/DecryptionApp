@@ -2,18 +2,18 @@ package BasicEncryption;
 
 public class AffineCipher {
     public static void main(String[] args) {
-       String maHoa = encrypt("KHOA3 CÔNG4 NG$HỆ THONG TIN", 3, 7);
+       String maHoa = encrypt("Ủy viên Ban Chấp hành Trung ương Đảng khóa XI, Ủy viên Ban Thường vụ Đảng ủy Công an Trung ương, Thứ trưởng Bộ Công an; tháng 9/2014 thăng cấp bậc hàm Thượng tướng", 3, 7);
        String giaiMa = decrypt("VAXD RXQT QTAF GAXQT GHQ", 3, 7);
         System.out.println(maHoa);
-//        System.out.println(giaiMa);
+        System.out.println(giaiMa);
     }
     public static String encrypt(String txt, int a, int b){
         StringBuilder builder = new StringBuilder();
         for(int i = 0; i <txt.length(); i++){
             char texToChar = txt.charAt(i);
-                if(isAsciiUpper(texToChar)){
+                if(Character.isUpperCase(texToChar)){
                     builder.append((char) ('A' + (a * (texToChar - 'A') + b) % 26));
-                } else if (isAsciiLower(texToChar)) {
+                } else if (Character.isLowerCase(texToChar)) {
                     builder.append((char) ('a' + (a * (texToChar - 'a') + b) % 26));
                 }else{
                 builder.append(texToChar);
@@ -34,10 +34,5 @@ public class AffineCipher {
         int num_mod = modNghichDao(a, 26);
         return encrypt(txt, num_mod, (26 - num_mod * b % 26) % 26);
     }
-    private static boolean isAsciiUpper(char c) {
-        return  c >= 'A' && c <= 'Z';
-    }
-    private static boolean isAsciiLower(char c) {
-        return c >= 'a' && c <= 'z';
-    }
+
 }
