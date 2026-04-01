@@ -2,21 +2,23 @@ package BasicEncryption;
 
 public class AffineCipher {
     public static void main(String[] args) {
-       String maHoa = encrypt("Ủy viên Ban Chấp hành Trung ương Đảng khóa XI, Ủy viên Ban Thường vụ Đảng ủy Công an Trung ương, Thứ trưởng Bộ Công an; tháng 9/2014 thăng cấp bậc hàm Thượng tướng", 3, 7);
-       String giaiMa = decrypt("VAXD RXQT QTAF GAXQT GHQ", 3, 7);
+        String txt = "Ủy viên Ban Chấp hành Trung ương Đảng khóa XI, Ủy viên Ban Thường vụ Đảng ủy Công an Trung ương, Thứ trưởng Bộ Công an; tháng 9/2014 thăng cấp bậc hàm Thượng tướng";
+
+        String maHoa = encrypt(txt, 3, 7);
+       String giaiMa = decrypt(maHoa, 3, 7);
         System.out.println(maHoa);
         System.out.println(giaiMa);
     }
+    static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
     public static String encrypt(String txt, int a, int b){
         StringBuilder builder = new StringBuilder();
-        for(int i = 0; i <txt.length(); i++){
-            char texToChar = txt.charAt(i);
-                if(Character.isUpperCase(texToChar)){
-                    builder.append((char) ('A' + (a * (texToChar - 'A') + b) % 26));
-                } else if (Character.isLowerCase(texToChar)) {
-                    builder.append((char) ('a' + (a * (texToChar - 'a') + b) % 26));
-                }else{
-                builder.append(texToChar);
+        for(char c: txt.toCharArray()){
+            if( ALPHABET.indexOf(c) != -1){
+                int index = (a * ALPHABET.indexOf(c) + b) % ALPHABET.length();
+                builder.append(ALPHABET.charAt(index));
+            }else{
+                builder.append(c);
             }
         }
         return builder.toString();
@@ -31,8 +33,17 @@ public class AffineCipher {
         return -1;
     }
     public static String decrypt(String txt, int a, int b){
-        int num_mod = modNghichDao(a, 26);
-        return encrypt(txt, num_mod, (26 - num_mod * b % 26) % 26);
+        int a_inv = modNghichDao(a, ALPHABET.length());
+        StringBuilder result = new StringBuilder();
+        for(char c : txt.toCharArray()){
+            if(ALPHABET.indexOf(c) != -1){
+                int newIndex = (a_inv * (ALPHABET.indexOf(c) - b + ALPHABET.length())) % ALPHABET.length();
+                result.append(ALPHABET.charAt(newIndex));
+            } else {
+                result.append(c);
+            }
+        }
+        return result.toString();
     }
 
 }
