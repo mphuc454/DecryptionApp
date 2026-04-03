@@ -1,6 +1,6 @@
 package BasicEncryption;
 
-public class HoanViCipher {
+public class PermutationCipher {
     public static void main(String[] args) {
 
     }
