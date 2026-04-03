@@ -10,7 +10,7 @@ public class VigenereCipher {
         System.out.println(kq);
 
     }
-    static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    static final String ALPHABET = "aăâbcdđeêghiklmnoôơpqrstuưvxyAĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY";
 
     public static String keyGenerator(String txt, String K){
         StringBuilder builderKey = new StringBuilder();

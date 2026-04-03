@@ -11,7 +11,7 @@ public class CaesarCipher {
         System.out.println(d);
 
     }
-    static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    static final String ALPHABET = "aăâbcdđeêghiklmnoôơpqrstuưvxyAĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY";
 
     public static String encrypt(String txt, int k){
         StringBuilder builder = new StringBuilder();

@@ -9,7 +9,7 @@ public class AffineCipher {
         System.out.println(maHoa);
         System.out.println(giaiMa);
     }
-    static final String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    static final String ALPHABET = "aăâbcdđeêghiklmnoôơpqrstuưvxyAĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY";
 
     public static String encrypt(String txt, int a, int b){
         StringBuilder builder = new StringBuilder();
