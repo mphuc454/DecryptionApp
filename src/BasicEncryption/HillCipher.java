@@ -2,7 +2,7 @@ package BasicEncryption;
 
 public class HillCipher {
     public static void main(String[] args) {
-        String txt = "Ủy viên Ban Chấp hành Trung ương Đảng khóa XI, Ủy viên Ban Thường vụ Đảng ủy Công";
+        String txt = "Ủy viên Ban Chấp hành Trung ương Đảng khóa XI, Ủy viên Ban Thường vụ Đảng ủy Công an Trung ương, Thứ trưởng Bộ Công an; tháng 9/2014 thăng cấp bậc hàm Thượng tướng";
         int[][] key = {{3, 2}, {5, 7}};
         String e = encrypt(txt, key);
         String d = decrypt(e, key, txt);
@@ -20,17 +20,14 @@ public class HillCipher {
     }
 
     public static String encrypt(String text, int[][] k) {
-        String plaintext = text.toUpperCase().replaceAll("[^aăâbcdđeêghiklmnoôơpqrstuưvxyAĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY]", "");
+        String plaintext = text.replaceAll("[^aăâbcdđeêghiklmnoôơpqrstuưvxyAĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY]", "");
 
         if (plaintext.length() % 2 != 0) {
             plaintext += 'X';
         }
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < plaintext.length(); i += 2) {
-            int[] vector = {
-                    ALPHABET.indexOf(plaintext.charAt(i)),
-                    ALPHABET.indexOf(plaintext.charAt(i + 1))
-            };
+            int[] vector = {ALPHABET.indexOf(plaintext.charAt(i)), ALPHABET.indexOf(plaintext.charAt(i + 1))};
             int[] res = nhanMatrix(k, vector, ALPHABET.length());
             builder.append(ALPHABET.charAt(res[0]));
             builder.append(ALPHABET.charAt(res[1]));
@@ -71,10 +68,7 @@ public class HillCipher {
 
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < text.length(); i += 2) {
-            int[] vector = {
-                    ALPHABET.indexOf(text.charAt(i)),
-                    ALPHABET.indexOf(text.charAt(i + 1))
-            };
+            int[] vector = {ALPHABET.indexOf(text.charAt(i)), ALPHABET.indexOf(text.charAt(i + 1))};
             int[] res = nhanMatrix(invkey, vector, ALPHABET.length());
             builder.append(ALPHABET.charAt(res[0]));
             builder.append(ALPHABET.charAt(res[1]));
@@ -84,15 +78,12 @@ public class HillCipher {
         int decryptedIndex = 0;
         for (char c : originalText.toCharArray()) {
             if (ALPHABET.contains(String.valueOf(c))) {
-                if (decryptedIndex < builder.length()) {
                     result.append(builder.charAt(decryptedIndex));
                     decryptedIndex++;
-                }
             } else {
                 result.append(c);
             }
         }
-
         return result.toString();
     }
 }
