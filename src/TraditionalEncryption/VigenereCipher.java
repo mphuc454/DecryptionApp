@@ -1,4 +1,4 @@
-package BasicEncryption;
+package TraditionalEncryption;
 
 public class VigenereCipher {
     public static void main(String[] args) {

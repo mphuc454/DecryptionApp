@@ -1,4 +1,4 @@
-package BasicEncryption;
+package TraditionalEncryption;
 
 public class SubstitutionCipher {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package SymmetricEncoding;
+package SymmetricEncryption;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;

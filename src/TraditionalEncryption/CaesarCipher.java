@@ -1,6 +1,4 @@
-package BasicEncryption;
-
-import java.text.Normalizer;
+package TraditionalEncryption;
 
 public class CaesarCipher {
     public static void main(String[] args) {
