@@ -1,4 +1,4 @@
-package SymmetricEncryption;
+package MVC.Controller.SymmetricEncryption;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
@@ -44,8 +44,7 @@ public class DES {
         CipherInputStream in = new CipherInputStream(input, cipher);
         int i;
         byte[] read = new byte[1024];
-        byte[] re = null;
-        while ((i = input.read(read)) != -1) {
+        while ((i = in.read(read)) != -1) {
             output.write(read, 0, i);
         }
         read = cipher.doFinal();
@@ -59,19 +58,18 @@ public class DES {
     }
     public boolean decryptFile(String src, String des) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         Cipher cipher = Cipher.getInstance("DES");
-        cipher.init(Cipher.ENCRYPT_MODE, this.key);
+        cipher.init(Cipher.DECRYPT_MODE, this.key);
         BufferedInputStream input = new BufferedInputStream(new FileInputStream(src));
         BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(des));
-        CipherOutputStream out = new CipherOutputStream(output, cipher);
+        CipherInputStream in = new CipherInputStream(input, cipher);
         int i;
         byte[] read = new byte[1024];
-        byte[] re = null;
-        while ((i = input.read(read)) != -1) {
+        while ((i = in.read(read)) != -1) {
             output.write(read, 0, i);
         }
         read = cipher.doFinal();
         if(read != null){
-            out.write(read);
+            output.write(read);
         }
         input.close();
         output.flush();
@@ -79,12 +77,19 @@ public class DES {
         return true;
     }
 
-    public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String text = "cầu thủ của người ta . Gáy sao cũng chấp nhận vì đó là sự thật hiển nhiên ";
+    public static void main(String[] args) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, IOException {
+//        String text = "cầu thủ của người ta . Gáy sao cũng chấp nhận vì đó là sự thật hiển nhiên ";
         DES des = new DES();
         des.createKey();
-        byte[] re = des.encypt(text);
-        System.out.println(Base64.getEncoder().encodeToString(re));
-        System.out.println(des.decrypt(re));
+        des.genIV();
+//        byte[] re = des.encypt(text);
+//        System.out.println(Base64.getEncoder().encodeToString(re));
+//        System.out.println(des.decrypt(re));
+
+        String f = "C:\\Users\\mphuc\\Downloads\\22130218_NguyenHoangPhuc_1.docx";
+        String enc = "C:\\Users\\mphuc\\Downloads\\2.doc";
+        String dec = "C:\\Users\\mphuc\\Downloads\\3.doc";
+        des.encryptFile(f, enc);
+        des.decryptFile(enc, dec);
     }
 }

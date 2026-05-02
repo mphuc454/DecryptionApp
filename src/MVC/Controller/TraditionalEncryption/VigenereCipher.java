@@ -1,4 +1,4 @@
-package TraditionalEncryption;
+package MVC.Controller.TraditionalEncryption;
 
 public class VigenereCipher {
     public static void main(String[] args) {

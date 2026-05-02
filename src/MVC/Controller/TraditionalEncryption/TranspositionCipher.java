@@ -1,4 +1,4 @@
-package TraditionalEncryption;
+package MVC.Controller.TraditionalEncryption;
 
 public class TranspositionCipher {
     public static void main(String[] args) {

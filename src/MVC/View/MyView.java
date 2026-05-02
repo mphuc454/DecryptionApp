@@ -1,4 +1,4 @@
-package GUI.View;
+package MVC.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,18 +61,7 @@ public class MyView extends JFrame {
         panelHash.add(new JButton("SHA"));
         panelHash.add(Box.createHorizontalStrut(10));
         panelHash.add(new JButton("MD5"));
-
-
-
         this.add(panelMain, BorderLayout.CENTER);
-
-
-
-
-
-
-
-
 
     }
 

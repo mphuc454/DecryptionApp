@@ -1,4 +1,4 @@
-package SymmetricEncryption;
+package MVC.Controller.SymmetricEncryption;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
@@ -37,16 +37,15 @@ public class AES {
         byte[] bytes = cipher.doFinal(data);
         return new String(bytes, StandardCharsets.UTF_8);
     }
-    public boolean encryptFile(String src, String des) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(Cipher.ENCRYPT_MODE, this.key, iv);
+    public boolean encryptFile(String src, String des) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, this.key);
         BufferedInputStream input = new BufferedInputStream(new FileInputStream(src));
         BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(des));
         CipherInputStream in = new CipherInputStream(input, cipher);
         int i;
         byte[] read = new byte[1024];
-        byte[] re = null;
-        while ((i = input.read(read)) != -1) {
+        while ((i = in.read(read)) != -1) {
             output.write(read, 0, i);
         }
         read = cipher.doFinal();
@@ -58,21 +57,20 @@ public class AES {
         output.close();
         return true;
     }
-    public boolean decryptFile(String src, String des) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(Cipher.ENCRYPT_MODE, this.key, iv);
+    public boolean decryptFile(String src, String des) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.DECRYPT_MODE, this.key);
         BufferedInputStream input = new BufferedInputStream(new FileInputStream(src));
         BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(des));
-        CipherOutputStream out = new CipherOutputStream(output, cipher);
+        CipherInputStream in = new CipherInputStream(input, cipher);
         int i;
         byte[] read = new byte[1024];
-        byte[] re = null;
-        while ((i = input.read(read)) != -1) {
+        while ((i = in.read(read)) != -1) {
             output.write(read, 0, i);
         }
         read = cipher.doFinal();
         if(read != null){
-            out.write(read);
+            output.write(read);
         }
         input.close();
         output.flush();
