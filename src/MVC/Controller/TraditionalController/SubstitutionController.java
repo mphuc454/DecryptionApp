@@ -44,6 +44,16 @@ public class SubstitutionController {
                 cardLayout.show(panel, "menu");
             }
         });
+        viewSubstitution.getGenKey().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                genKey();
+            }
+        });
+    }
+    public void genKey() {
+        String res = substitutionCipher.randomMappingAlphabet();
+        viewSubstitution.getKeyField().setText(res);
     }
 
     public void encryptSubstitution(){

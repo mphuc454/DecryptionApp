@@ -78,7 +78,6 @@ public class CaesarController {
         } catch (Exception e) {
             viewCaesar.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
         }
-
     }
     public void Clear(){
         viewCaesar.getKeyField().setText("");

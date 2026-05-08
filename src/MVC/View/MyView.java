@@ -60,7 +60,7 @@ public class MyView extends JFrame {
        panelTraditional.add(btnHill);
        JButton btnHoanVi = new JButton("Mã hoá hoán vị");
        panelTraditional.add(btnHoanVi);
-       JButton btnDichChuyen = new JButton("Mã hoá dịch chuyển");
+       JButton btnDichChuyen = new JButton("Mã hoá thay thế");
        panelTraditional.add(btnDichChuyen);
        JButton btnVigenere = new JButton("Mã hoá Vigenere");
        panelTraditional.add(btnVigenere);

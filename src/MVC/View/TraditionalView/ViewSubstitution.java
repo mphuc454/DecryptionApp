@@ -10,6 +10,8 @@ public class ViewSubstitution extends JPanel {
     private JButton btnEncrypt;
     private JButton btnDecrypt;
     private JButton btnClear;
+    private JTextField txtKey;
+    private JButton btnGenKey;
 
     public ViewSubstitution(){
         this.setLayout(new BorderLayout(10, 10));
@@ -17,7 +19,17 @@ public class ViewSubstitution extends JPanel {
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
+        JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
+        JLabel lb = new JLabel("Nhập khoá: ");
+        keyPanel.add(lb);
+        txtKey = new JTextField(60);
+        txtKey.setEditable(false);
+        keyPanel.add(txtKey);
+        topPanel.add(keyPanel, BorderLayout.CENTER);
 
+        btnGenKey = new JButton("TẠO KEY");
+        topPanel.add(btnGenKey, BorderLayout.EAST);
+        
         this.add(topPanel, BorderLayout.NORTH);
 
         JPanel centerPanel = new JPanel();
@@ -68,9 +80,13 @@ public class ViewSubstitution extends JPanel {
     public JButton getEncryptButton() {
         return btnEncrypt;
     }
-    public JButton getDecryptButton() {
-        return btnDecrypt;
+    public JTextField getKeyField() {
+        return txtKey;
     }
+    public JButton getGenKey(){
+        return btnGenKey;
+    }
+    public JButton getDecryptButton() {return btnDecrypt;}
     public JButton getClearButton() {
         return btnClear;
     }

@@ -21,7 +21,7 @@ public class ViewVigenere extends JPanel {
         JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
         JLabel lb = new JLabel("Nhập khoá (Chữ): ");
         keyPanel.add(lb);
-        txtKey = new JTextField(40);
+        txtKey = new JTextField(60);
         keyPanel.add(txtKey);
         topPanel.add(keyPanel, BorderLayout.CENTER);
 
