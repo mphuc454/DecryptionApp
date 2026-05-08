@@ -1,18 +1,10 @@
-package MVC.Controller.TraditionalEncryption;
+package MVC.Model.TraditionalModel;
 
 public class VigenereCipher {
-    public static void main(String[] args) {
-        String txt = "Ủy viên Ban Chấp hành Trung ương Đảng khóa XI, Ủy viên Ban Thường vụ Đảng ủy Công an Trung ương, Thứ trưởng Bộ Công an; tháng 9/2014 thăng cấp bậc hàm Thượng tướng";
-        String key = keyGenerator(txt, "SUA");
-        String maHoa = encrypt(txt, key);
-        String kq = decrypt(maHoa, key);
-        System.out.println(maHoa);
-        System.out.println(kq);
 
-    }
-    static final String ALPHABET = "aăâbcdđeêghiklmnoôơpqrstuưvxyAĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY";
+    String ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public static String keyGenerator(String txt, String K){
+    public String keyGenerator(String txt, String K){
         StringBuilder builderKey = new StringBuilder();
         int j = 0;
         for (int i = 0; i < txt.length() ; i++) {
@@ -26,7 +18,7 @@ public class VigenereCipher {
         }
         return builderKey.toString();
     }
-public static String encrypt(String txt, String k) {
+public String encrypt(String txt, String k) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < txt.length() ; i++) {
             int txtIndex = ALPHABET.indexOf(txt.charAt(i));
@@ -41,7 +33,7 @@ public static String encrypt(String txt, String k) {
         return builder.toString();
     }
 
-public static String decrypt(String txt, String k) {
+public String decrypt(String txt, String k) {
     StringBuilder builder = new StringBuilder();
     for (int i = 0; i < txt.length() ; i++) {
         int txtIndex = ALPHABET.indexOf(txt.charAt(i));

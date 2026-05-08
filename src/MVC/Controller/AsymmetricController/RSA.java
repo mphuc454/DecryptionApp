@@ -1,4 +1,4 @@
-package MVC.Controller.AsymmetricEncryption;
+package MVC.Controller.AsymmetricController;
 
 import javax.crypto.*;
 import java.io.*;

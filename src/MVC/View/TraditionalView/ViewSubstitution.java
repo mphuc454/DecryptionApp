@@ -3,7 +3,7 @@ package MVC.View.TraditionalView;
 import javax.swing.*;
 import java.awt.*;
 
-public class ViewCaesar extends JPanel {
+public class ViewSubstitution extends JPanel {
     private JPanel contentPanel;
     private JButton btnBack;
     private JTextField txtKey;
@@ -12,20 +12,14 @@ public class ViewCaesar extends JPanel {
     private JButton btnEncrypt;
     private JButton btnDecrypt;
     private JButton btnClear;
-    private JButton btnGenKey;
 
-    public ViewCaesar(){
+    public ViewSubstitution(){
         this.setLayout(new BorderLayout(10, 10));
 
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
 
-        txtKey = new JTextField();
-        topPanel.add(txtKey, BorderLayout.CENTER);
-
-        btnGenKey = new JButton("TẠO KEY");
-        topPanel.add(btnGenKey, BorderLayout.EAST);
 
         this.add(topPanel, BorderLayout.NORTH);
 
@@ -63,36 +57,5 @@ public class ViewCaesar extends JPanel {
         rightPanel.add(btnClear);
 
         this.add(rightPanel, BorderLayout.EAST);
-    }
-
-    public JButton getBackButton() {
-        return btnBack;
-    }
-
-    public JTextField getKeyField() {
-        return txtKey;
-    }
-    public JButton getGenKey(){
-        return btnGenKey;
-    }
-
-    public JTextArea getInputArea() {
-        return txtInput;
-    }
-
-    public JTextArea getOutputArea() {
-        return txtOutput;
-    }
-
-    public JButton getEncryptButton() {
-        return btnEncrypt;
-    }
-
-    public JButton getDecryptButton() {
-        return btnDecrypt;
-    }
-
-    public JButton getClearButton() {
-        return btnClear;
     }
 }
