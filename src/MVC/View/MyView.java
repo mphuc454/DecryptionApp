@@ -1,11 +1,17 @@
 package MVC.View;
 
+import MVC.Controller.TraditionalController.AffineController;
 import MVC.Controller.TraditionalController.CaesarController;
 import MVC.Controller.TraditionalController.SubstitutionController;
+import MVC.Controller.TraditionalController.VigenereController;
+import MVC.Model.TraditionalModel.AffineCipher;
 import MVC.Model.TraditionalModel.CaesarCipher;
 import MVC.Model.TraditionalModel.SubstitutionCipher;
+import MVC.Model.TraditionalModel.VigenereCipher;
+import MVC.View.TraditionalView.ViewAffine;
 import MVC.View.TraditionalView.ViewCaesar;
 import MVC.View.TraditionalView.ViewSubstitution;
+import MVC.View.TraditionalView.ViewVigenere;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,13 +28,16 @@ public class MyView extends JFrame {
     JPanel panelHash = new JPanel();
     JPanel panelCaesar;
     JPanel panelSubstitution;
-
+    JPanel panelAffine;
+    JPanel panelVigenere;
     ViewCaesar viewCaesar = new ViewCaesar();
     CaesarCipher caesarCipher = new CaesarCipher();
-
     ViewSubstitution viewSubstitution = new ViewSubstitution();
     SubstitutionCipher substitutionCipher = new SubstitutionCipher();
-
+    ViewAffine viewAffine = new ViewAffine();
+    AffineCipher affineCipher = new AffineCipher();
+    ViewVigenere viewVigenere = new ViewVigenere();
+    VigenereCipher vigenereCipher = new VigenereCipher();
 
     public MyView(){
         this.setTitle("App Encryption Basic");
@@ -85,12 +94,17 @@ public class MyView extends JFrame {
        panelMain.add(panelCaesar, "caesar");
        new CaesarController(caesarCipher, viewCaesar, cardLayout, panelMain);
 
-
        panelSubstitution = viewSubstitution;
        panelMain.add(panelSubstitution, "substitution");
        new SubstitutionController(substitutionCipher, viewSubstitution, cardLayout, panelMain);
 
+       panelAffine = viewAffine;
+       panelMain.add(panelAffine, "affine");
+       new AffineController(affineCipher, viewAffine, cardLayout, panelMain);
 
+       panelVigenere = viewVigenere;
+       panelMain.add(panelVigenere, "vigenere");
+       new VigenereController(vigenereCipher, viewVigenere, cardLayout, panelMain);
 
         btnDichChuyen.addActionListener(new ActionListener() {
             @Override
@@ -102,6 +116,18 @@ public class MyView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(panelMain, "caesar");
+            }
+        });
+        btnAffine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panelMain,"affine");
+            }
+        });
+        btnVigenere.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panelMain,"vigenere");
             }
         });
 

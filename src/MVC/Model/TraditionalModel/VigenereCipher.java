@@ -47,4 +47,21 @@ public String decrypt(String txt, String k) {
     }
     return builder.toString();
 }
+    public static void main(String[] args) {
+
+        VigenereCipher vc = new VigenereCipher();
+
+        String plaintext = "HelloWorld";
+        String key = "KEY";
+
+        // tạo key đầy đủ
+        String fullKey = vc.keyGenerator(plaintext, key);
+        System.out.println("Key full : " + fullKey);
+
+        // mã hóa
+        String cipher = vc.encrypt(plaintext, fullKey);
+
+        // giải mã
+        String decrypt = vc.decrypt(cipher, fullKey);
+    }
 }

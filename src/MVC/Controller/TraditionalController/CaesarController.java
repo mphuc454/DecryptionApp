@@ -21,12 +21,7 @@ public class CaesarController {
         this.viewCaesar = viewCaesar;
         this.cardLayout = cardLayout;
         this.panel = panel;
-        viewCaesar.getBackButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cardLayout.show(panel, "menu");
-            }
-        });
+
         viewCaesar.getEncryptButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,29 +46,33 @@ public class CaesarController {
                 genKey();
             }
         });
+        viewCaesar.getBackButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panel, "menu");
+            }
+        });
     }
 
-    private void genKey() {
-        int n = new Random().nextInt(26)+1;
+    public void genKey() {
+        int n = new Random().nextInt(99)+1;
         viewCaesar.getKeyField().setText(String.valueOf(n));
     }
 
-    private void encryptCaesar(){
+    public void encryptCaesar(){
         try {
             String input = viewCaesar.getInputArea().getText();
             int key = Integer.parseInt(viewCaesar.getKeyField().getText());
-
             String result = caesarCipher.encrypt(input, key);
             viewCaesar.getOutputArea().setText(result);
         } catch (Exception e) {
             viewCaesar.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
         }
     }
-    private void decryptCaesar(){
+    public void decryptCaesar(){
         try {
             String input = viewCaesar.getInputArea().getText();
             int key = Integer.parseInt(viewCaesar.getKeyField().getText());
-
             String result = caesarCipher.decrypt(input, key);
             viewCaesar.getOutputArea().setText(result);
         } catch (Exception e) {
@@ -81,7 +80,8 @@ public class CaesarController {
         }
 
     }
-    private void Clear(){
+    public void Clear(){
+        viewCaesar.getKeyField().setText("");
         viewCaesar.getInputArea().setText("");
         viewCaesar.getOutputArea().setText("");
     }

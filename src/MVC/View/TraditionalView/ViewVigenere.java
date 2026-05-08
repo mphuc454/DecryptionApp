@@ -3,39 +3,30 @@ package MVC.View.TraditionalView;
 import javax.swing.*;
 import java.awt.*;
 
-public class ViewAffine extends JPanel {
+public class ViewVigenere extends JPanel {
     private JButton btnBack;
-    private JTextField txtKeyA;
-    private JTextField txtKeyB;
+    private JTextField txtKey;
     private JTextArea txtInput;
     private JTextArea txtOutput;
     private JButton btnEncrypt;
     private JButton btnDecrypt;
     private JButton btnClear;
-    private JButton btnGenKey;
 
-    public ViewAffine(){
+    public ViewVigenere(){
         this.setLayout(new BorderLayout(10, 10));
-
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
 
         JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-        JLabel lbA = new JLabel("a");
-        keyPanel.add(lbA);
-        txtKeyA = new JTextField(30);
-        keyPanel.add(txtKeyA);
-        JLabel lbB = new JLabel("b");
-        keyPanel.add(lbB);
-        txtKeyB = new JTextField(30);
-        keyPanel.add(txtKeyB);
+        JLabel lb = new JLabel("Nhập khoá (Chữ): ");
+        keyPanel.add(lb);
+        txtKey = new JTextField(40);
+        keyPanel.add(txtKey);
         topPanel.add(keyPanel, BorderLayout.CENTER);
 
-        btnGenKey = new JButton("TẠO KEY");
-        topPanel.add(btnGenKey, BorderLayout.EAST);
-
         this.add(topPanel, BorderLayout.NORTH);
+
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 
@@ -43,7 +34,7 @@ public class ViewAffine extends JPanel {
         JLabel titleInput = new JLabel("Nhập văn bản");
         txtInput = new JTextArea(5, 20);
         inputPan.add(titleInput, BorderLayout.NORTH);
-        inputPan.add(new JScrollPane(txtInput), BorderLayout.CENTER);
+        inputPan.add(new JScrollPane(txtInput) , BorderLayout.CENTER);
 
         JPanel outputPan = new JPanel(new BorderLayout());
         JLabel titleOutput = new JLabel("Kết quả");
@@ -74,14 +65,8 @@ public class ViewAffine extends JPanel {
     public JButton getBackButton() {
         return btnBack;
     }
-    public JTextField getKeyFieldA() {
-        return txtKeyA;
-    }
-    public JTextField getKeyFieldB() {
-        return txtKeyB;
-    }
-    public JButton getGenKey(){
-        return btnGenKey;
+    public JTextField getKeyField() {
+        return txtKey;
     }
     public JTextArea getInputArea() {
         return txtInput;
@@ -98,6 +83,4 @@ public class ViewAffine extends JPanel {
     public JButton getClearButton() {
         return btnClear;
     }
-
-
 }

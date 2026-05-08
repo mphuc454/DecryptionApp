@@ -4,9 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ViewSubstitution extends JPanel {
-    private JPanel contentPanel;
     private JButton btnBack;
-    private JTextField txtKey;
     private JTextArea txtInput;
     private JTextArea txtOutput;
     private JButton btnEncrypt;
@@ -20,7 +18,6 @@ public class ViewSubstitution extends JPanel {
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
 
-
         this.add(topPanel, BorderLayout.NORTH);
 
         JPanel centerPanel = new JPanel();
@@ -30,17 +27,17 @@ public class ViewSubstitution extends JPanel {
         JLabel titleInput = new JLabel("Nhập văn bản");
         txtInput = new JTextArea(5, 20);
         inputPan.add(titleInput, BorderLayout.NORTH);
-        inputPan.add(txtInput, BorderLayout.CENTER);
+        inputPan.add(new JScrollPane(txtInput), BorderLayout.CENTER);
 
         JPanel outputPan = new JPanel(new BorderLayout());
         JLabel titleOutput = new JLabel("Kết quả");
         txtOutput = new JTextArea(5, 20);
         txtOutput.setEditable(false);
         outputPan.add(titleOutput , BorderLayout.NORTH);
-        outputPan.add(txtOutput, BorderLayout.CENTER);
+        outputPan.add(new JScrollPane(txtOutput), BorderLayout.CENTER);
+
         centerPanel.add(inputPan);
         centerPanel.add(outputPan);
-
         this.add(centerPanel, BorderLayout.CENTER);
 
         JPanel rightPanel = new JPanel();
@@ -50,6 +47,7 @@ public class ViewSubstitution extends JPanel {
         btnDecrypt = new JButton("GIẢI MÃ");
         btnClear = new JButton("XOÁ");
 
+
         rightPanel.add(btnEncrypt);
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(btnDecrypt);
@@ -57,5 +55,23 @@ public class ViewSubstitution extends JPanel {
         rightPanel.add(btnClear);
 
         this.add(rightPanel, BorderLayout.EAST);
+    }
+    public JButton getBackButton(){
+        return btnBack;
+    }
+    public JTextArea getInputArea() {
+        return txtInput;
+    }
+    public JTextArea getOutputArea() {
+        return txtOutput;
+    }
+    public JButton getEncryptButton() {
+        return btnEncrypt;
+    }
+    public JButton getDecryptButton() {
+        return btnDecrypt;
+    }
+    public JButton getClearButton() {
+        return btnClear;
     }
 }
