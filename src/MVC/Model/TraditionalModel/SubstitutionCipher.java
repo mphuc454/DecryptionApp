@@ -6,7 +6,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class SubstitutionCipher{
-    String Alphabet = "aăâbcdđeêghiklmnoôơpqrstuưvxyAĂÂBCDĐEÊGHIKLMNOÔƠPQRSTUƯVXY";;
+    String Alphabet = "aáàảãạăắằẳẵặâấầẩẫậbcdđeéèẻẽẹêếềểễệghiíìỉĩịklmnoóòỏõọôốồổỗộơớờởỡợpqrstuúùủũụưứừửữựvxyýỳỷỹỵ" +
+            "AÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬBCDĐEÉÈẺẼẸÊẾỀỂỄỆGHIÍÌỈĨỊKLMNOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢPQRSTUÚÙỦŨỤƯỨỪỬỮỰVXYÝỲỶỸỴ";
 
     public String randomMappingAlphabet(){
         List li = new ArrayList();
@@ -21,6 +22,7 @@ public class SubstitutionCipher{
         return builder.toString();
     }
     String mappingAlphabet = randomMappingAlphabet();
+
 
     public String encrypt(String txt) {
         StringBuilder builder = new StringBuilder();
@@ -43,6 +45,11 @@ public class SubstitutionCipher{
             }
         }
         return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        SubstitutionCipher sc = new SubstitutionCipher();
+        System.out.println(sc.mappingAlphabet);
     }
 
 }

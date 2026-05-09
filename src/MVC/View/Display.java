@@ -1,8 +1,9 @@
 package MVC.View;
 
-public class MyApp {
+public class Display {
     public static void main(String[] args) {
-        MyView view = new MyView();
+        MainView view = new MainView();
         view.setVisible(true);
     }
 }
+

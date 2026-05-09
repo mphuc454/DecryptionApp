@@ -61,7 +61,6 @@ public class SubstitutionController {
             String input = viewSubstitution.getInputArea().getText();
             String res = substitutionCipher.encrypt(input);
             viewSubstitution.getOutputArea().setText(res);
-
         }catch (Exception e){
             viewSubstitution.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
         }
@@ -79,5 +78,6 @@ public class SubstitutionController {
     public void Clear(){
         viewSubstitution.getInputArea().setText("");
         viewSubstitution.getOutputArea().setText("");
+        viewSubstitution.getKeyField().setText("");
     }
 }
