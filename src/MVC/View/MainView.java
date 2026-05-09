@@ -1,17 +1,8 @@
 package MVC.View;
 
-import MVC.Controller.TraditionalController.AffineController;
-import MVC.Controller.TraditionalController.CaesarController;
-import MVC.Controller.TraditionalController.SubstitutionController;
-import MVC.Controller.TraditionalController.VigenereController;
-import MVC.Model.TraditionalModel.AffineCipher;
-import MVC.Model.TraditionalModel.CaesarCipher;
-import MVC.Model.TraditionalModel.SubstitutionCipher;
-import MVC.Model.TraditionalModel.VigenereCipher;
-import MVC.View.TraditionalView.ViewAffine;
-import MVC.View.TraditionalView.ViewCaesar;
-import MVC.View.TraditionalView.ViewSubstitution;
-import MVC.View.TraditionalView.ViewVigenere;
+import MVC.Controller.TraditionalController.*;
+import MVC.Model.TraditionalModel.*;
+import MVC.View.TraditionalView.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,6 +22,8 @@ public class MainView extends JFrame {
     JPanel panelSubstitution;
     JPanel panelAffine;
     JPanel panelVigenere;
+    JPanel panelTransposition;
+    JPanel panelHill;
     ViewCaesar viewCaesar = new ViewCaesar();
     CaesarCipher caesarCipher = new CaesarCipher();
     ViewSubstitution viewSubstitution = new ViewSubstitution();
@@ -39,6 +32,10 @@ public class MainView extends JFrame {
     AffineCipher affineCipher = new AffineCipher();
     ViewVigenere viewVigenere = new ViewVigenere();
     VigenereCipher vigenereCipher = new VigenereCipher();
+    ViewTransposition viewTransposition = new ViewTransposition();
+    TranspositionCipher transpositionCipher = new TranspositionCipher();
+    ViewHill viewHill = new ViewHill();
+    HillCipher hillCipher = new HillCipher();
 
     public MainView(){
         this.setTitle("App Encryption Basic");
@@ -107,6 +104,14 @@ public class MainView extends JFrame {
         panel.add(panelVigenere, "vigenere");
         new VigenereController(vigenereCipher, viewVigenere, cardLayout, panel);
 
+        panelTransposition = viewTransposition;
+        panel.add(panelTransposition, "transposition");
+        new TranspositionController(transpositionCipher, viewTransposition, cardLayout, panel);
+
+        panelHill = viewHill;
+        panel.add( panelHill, "hill");
+        new HillController(hillCipher, viewHill, cardLayout, panel);
+
         btnSubstitution.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -131,8 +136,18 @@ public class MainView extends JFrame {
                 cardLayout.show(panel,"vigenere");
             }
         });
-
-
+        btnTransposition.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panel,"transposition");
+            }
+        });
+        btnHill.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panel,"hill");
+            }
+        });
 
         this.add(panel, BorderLayout.CENTER);
 

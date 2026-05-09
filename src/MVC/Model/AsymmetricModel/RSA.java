@@ -1,4 +1,4 @@
-package MVC.Controller.AsymmetricController;
+package MVC.Model.AsymmetricModel;
 
 import javax.crypto.*;
 import java.io.*;

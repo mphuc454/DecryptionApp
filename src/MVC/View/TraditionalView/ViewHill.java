@@ -3,9 +3,12 @@ package MVC.View.TraditionalView;
 import javax.swing.*;
 import java.awt.*;
 
-public class ViewTransposition extends JPanel {
+public class ViewHill extends JPanel {
     private JButton btnBack;
-    private JTextField txtKey;
+    private JTextField txtKeyA;
+    private JTextField txtKeyB;
+    private JTextField txtKeyC;
+    private JTextField txtKeyD;
     private JTextArea txtInput;
     private JTextArea txtOutput;
     private JButton btnEncrypt;
@@ -13,24 +16,28 @@ public class ViewTransposition extends JPanel {
     private JButton btnClear;
     private JButton btnGenKey;
 
-    public ViewTransposition(){
+    public ViewHill(){
         this.setLayout(new BorderLayout(10, 10));
+
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
 
-        JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-        JLabel lb = new JLabel("Nhập khoá: ");
-        keyPanel.add(lb);
-        txtKey = new JTextField(60);
-        keyPanel.add(txtKey);
+        JPanel keyPanel = new JPanel(new GridLayout(2,2,10,5));
+        txtKeyA = new JTextField(5);
+        keyPanel.add(txtKeyA);
+        txtKeyB = new JTextField(5);
+        keyPanel.add(txtKeyB);
+        txtKeyC = new JTextField(5);
+        keyPanel.add(txtKeyC);
+        txtKeyD = new JTextField(5);
+        keyPanel.add(txtKeyD);
         topPanel.add(keyPanel, BorderLayout.CENTER);
 
         btnGenKey = new JButton("TẠO KEY");
         topPanel.add(btnGenKey, BorderLayout.EAST);
 
         this.add(topPanel, BorderLayout.NORTH);
-
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 
@@ -38,7 +45,7 @@ public class ViewTransposition extends JPanel {
         JLabel titleInput = new JLabel("Nhập văn bản");
         txtInput = new JTextArea(5, 20);
         inputPan.add(titleInput, BorderLayout.NORTH);
-        inputPan.add(new JScrollPane(txtInput) , BorderLayout.CENTER);
+        inputPan.add(new JScrollPane(txtInput), BorderLayout.CENTER);
 
         JPanel outputPan = new JPanel(new BorderLayout());
         JLabel titleOutput = new JLabel("Kết quả");
@@ -66,12 +73,20 @@ public class ViewTransposition extends JPanel {
 
         this.add(rightPanel, BorderLayout.EAST);
     }
-
     public JButton getBackButton() {
         return btnBack;
     }
-    public JTextField getKeyField() {
-        return txtKey;
+    public JTextField getKeyFieldA() {
+        return txtKeyA;
+    }
+    public JTextField getKeyFieldB() {
+        return txtKeyB;
+    }
+    public JTextField getKeyFieldC() {
+        return txtKeyC;
+    }
+    public JTextField getKeyFieldD() {
+        return txtKeyD;
     }
     public JButton getGenKey(){
         return btnGenKey;
@@ -91,4 +106,7 @@ public class ViewTransposition extends JPanel {
     public JButton getClearButton() {
         return btnClear;
     }
+
 }
+
+

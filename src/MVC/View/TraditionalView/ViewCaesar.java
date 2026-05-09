@@ -15,7 +15,6 @@ public class ViewCaesar extends JPanel {
 
     public ViewCaesar(){
         this.setLayout(new BorderLayout(10, 10));
-
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
