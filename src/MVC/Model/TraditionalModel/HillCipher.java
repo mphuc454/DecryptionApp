@@ -3,27 +3,45 @@ package MVC.Model.TraditionalModel;
 public class HillCipher {
     String Alphabet = "aáàảãạăắằẳẵặâấầẩẫậbcdđeéèẻẽẹêếềểễệghiíìỉĩịklmnoóòỏõọôốồổỗộơớờởỡợpqrstuúùủũụưứừửữựvxyýỳỷỹỵ" +
             "AÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬBCDĐEÉÈẺẼẸÊẾỀỂỄỆGHIÍÌỈĨỊKLMNOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢPQRSTUÚÙỦŨỤƯỨỪỬỮỰVXYÝỲỶỸỴ";
+
     public int[] nhanMatrix(int[][] key, int[] vector, int mod) {
         int[] res = new int[2];
         res[0] = (key[0][0] * vector[0] + key[0][1] * vector[1]) % mod;
         res[1] = (key[1][0] * vector[0] + key[1][1] * vector[1]) % mod;
         return res;
     }
-
     public String encrypt(String text, int[][] k) {
         String plaintext = text.replaceAll("[^aáàảãạăắằẳẵặâấầẩẫậbcdđeéèẻẽẹêếềểễệghiíìỉĩịklmnoóòỏõọôốồổỗộơớờởỡợpqrstuúùủũụưứừửữựvxyýỳỷỹỵAÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬBCDĐEÉÈẺẼẸÊẾỀỂỄỆGHIÍÌỈĨỊKLMNOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢPQRSTUÚÙỦŨỤƯỨỪỬỮỰVXYÝỲỶỸỴ]", "");
 
+        boolean padding = false;
         if (plaintext.length() % 2 != 0) {
             plaintext += 'X';
+            padding = true;
         }
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < plaintext.length(); i += 2) {
-            int[] vector = {Alphabet.indexOf(plaintext.charAt(i)), Alphabet.indexOf(plaintext.charAt(i + 1))};
+            int[] vector = {
+                    Alphabet.indexOf(plaintext.charAt(i)),
+                    Alphabet.indexOf(plaintext.charAt(i + 1))
+            };
             int[] res = nhanMatrix(k, vector, Alphabet.length());
             builder.append(Alphabet.charAt(res[0]));
             builder.append(Alphabet.charAt(res[1]));
         }
-        return builder.toString();
+        StringBuilder result = new StringBuilder();
+        int index = 0;
+        for(char c: text.toCharArray()){
+            if(Alphabet.contains(String.valueOf(c))){
+                result.append(builder.charAt(index));
+                index++;
+            }else{
+                result.append(c);
+            }
+        }
+        if (padding){
+            result.append(builder.charAt(builder.length() - 1));
+        }
+        return result.toString();
     }
 
     public int modInverse(int a, int mod) {
@@ -52,13 +70,17 @@ public class HillCipher {
         invkey[1][1] = (a * invDet % mod + mod) % mod;
     }
 
-    public String decrypt(String text, int[][] k, String originalText) {
+    public String decrypt(String text, int[][] k) {
         int[][] invkey = new int[2][2];
         inverseMatrix(k, invkey, Alphabet.length());
+        String plaintext = text.replaceAll("[^aáàảãạăắằẳẵặâấầẩẫậbcdđeéèẻẽẹêếềểễệghiíìỉĩịklmnoóòỏõọôốồổỗộơớờởỡợpqrstuúùủũụưứừửữựvxyýỳỷỹỵAÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬBCDĐEÉÈẺẼẸÊẾỀỂỄỆGHIÍÌỈĨỊKLMNOÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢPQRSTUÚÙỦŨỤƯỨỪỬỮỰVXYÝỲỶỸỴ]", "");
 
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < text.length(); i += 2) {
-            int[] vector = {Alphabet.indexOf(text.charAt(i)), Alphabet.indexOf(text.charAt(i + 1))};
+        for (int i = 0; i < plaintext.length(); i += 2) {
+            int[] vector = {
+                    Alphabet.indexOf(plaintext.charAt(i)),
+                    Alphabet.indexOf(plaintext.charAt(i + 1))
+            };
             int[] res = nhanMatrix(invkey, vector, Alphabet.length());
             builder.append(Alphabet.charAt(res[0]));
             builder.append(Alphabet.charAt(res[1]));
@@ -66,7 +88,7 @@ public class HillCipher {
 
         StringBuilder result = new StringBuilder();
         int index = 0;
-        for (char c : originalText.toCharArray()) {
+        for (char c : text.toCharArray()) {
             if (Alphabet.contains(String.valueOf(c))) {
                 result.append(builder.charAt(index));
                 index++;
@@ -76,4 +98,5 @@ public class HillCipher {
         }
         return result.toString();
     }
+
 }

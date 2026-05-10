@@ -86,7 +86,7 @@ public class HillController {
             int keyC = Integer.parseInt(viewHill.getKeyFieldC().getText());
             int keyD = Integer.parseInt(viewHill.getKeyFieldD().getText());
             int[][] key = {{keyA,keyB},{keyC,keyD}};
-            String result =  hillCipher.decrypt(input, key, input);
+            String result =  hillCipher.decrypt(input, key);
             viewHill.getOutputArea().setText(result);
         } catch (Exception e) {
             viewHill.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");

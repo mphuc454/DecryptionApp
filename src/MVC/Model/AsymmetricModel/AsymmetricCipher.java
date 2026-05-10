@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Base64;
 
-public class RSA {
+public class AsymmetricCipher {
     private KeyPair keyPair;
     private PrivateKey privateKey;
     private PublicKey publicKey;
@@ -105,7 +105,7 @@ public class RSA {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException,
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException, IOException {
-        RSA rsa = new RSA();
+        AsymmetricCipher rsa = new AsymmetricCipher();
         rsa.genKey();
 
         System.out.println("Public Key: " + rsa.getPublicKey());

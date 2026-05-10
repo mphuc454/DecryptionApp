@@ -1,7 +1,9 @@
 package MVC.View;
 
 import MVC.Controller.TraditionalController.*;
+import MVC.Model.SymmetricModel.SymmetricCipher;
 import MVC.Model.TraditionalModel.*;
+import MVC.View.SymmetricView.ViewSymmetric;
 import MVC.View.TraditionalView.*;
 
 import javax.swing.*;
@@ -24,6 +26,7 @@ public class MainView extends JFrame {
     JPanel panelVigenere;
     JPanel panelTransposition;
     JPanel panelHill;
+    JPanel panelSymmetric;
     ViewCaesar viewCaesar = new ViewCaesar();
     CaesarCipher caesarCipher = new CaesarCipher();
     ViewSubstitution viewSubstitution = new ViewSubstitution();
@@ -36,6 +39,8 @@ public class MainView extends JFrame {
     TranspositionCipher transpositionCipher = new TranspositionCipher();
     ViewHill viewHill = new ViewHill();
     HillCipher hillCipher = new HillCipher();
+    ViewSymmetric viewSymmetric = new ViewSymmetric();
+    SymmetricCipher symmetricCipher = new SymmetricCipher();
 
     public MainView(){
         this.setTitle("App Encryption Basic");
@@ -112,6 +117,10 @@ public class MainView extends JFrame {
         panel.add( panelHill, "hill");
         new HillController(hillCipher, viewHill, cardLayout, panel);
 
+        panelSymmetric = viewSymmetric;
+        panel.add(panelSymmetric, "symmetric");
+
+
         btnSubstitution.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -146,6 +155,12 @@ public class MainView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(panel,"hill");
+            }
+        });
+        btnSymmetric.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panel,"symmetric");
             }
         });
 

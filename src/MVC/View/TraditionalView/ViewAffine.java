@@ -20,7 +20,6 @@ public class ViewAffine extends JPanel {
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
-
         JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
         JLabel lbA = new JLabel("a");
         keyPanel.add(lbA);
@@ -31,20 +30,17 @@ public class ViewAffine extends JPanel {
         txtKeyB = new JTextField(30);
         keyPanel.add(txtKeyB);
         topPanel.add(keyPanel, BorderLayout.CENTER);
-
         btnGenKey = new JButton("TẠO KEY");
         topPanel.add(btnGenKey, BorderLayout.EAST);
-
         this.add(topPanel, BorderLayout.NORTH);
+
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-
         JPanel inputPan = new JPanel(new BorderLayout());
         JLabel titleInput = new JLabel("Nhập văn bản");
         txtInput = new JTextArea(5, 20);
         inputPan.add(titleInput, BorderLayout.NORTH);
         inputPan.add(new JScrollPane(txtInput), BorderLayout.CENTER);
-
         JPanel outputPan = new JPanel(new BorderLayout());
         JLabel titleOutput = new JLabel("Kết quả");
         txtOutput = new JTextArea(5, 20);
@@ -53,22 +49,18 @@ public class ViewAffine extends JPanel {
         outputPan.add(new JScrollPane(txtOutput), BorderLayout.CENTER);
         centerPanel.add(inputPan);
         centerPanel.add(outputPan);
-
         this.add(centerPanel, BorderLayout.CENTER);
 
         JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-
-        btnEncrypt = new JButton("MÃ HOÁ");
-        btnDecrypt = new JButton("GIẢI MÃ");
-        btnClear = new JButton("XOÁ");
-
+        btnEncrypt = new JButton("Mã hoá");
+        btnDecrypt = new JButton("Giải Mã");
+        btnClear = new JButton("Xoá");
         rightPanel.add(btnEncrypt);
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(btnDecrypt);
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(btnClear);
-
         this.add(rightPanel, BorderLayout.EAST);
     }
     public JButton getBackButton() {

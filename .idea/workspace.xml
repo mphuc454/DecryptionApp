@@ -6,15 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="74525df1-d2e6-4b35-bb50-475610d814ce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/AsymmetricController/RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/AsymmetricModel/RSA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/SymmetricController/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/SymmetricModel/AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/SymmetricController/DES.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/AsymmetricModel/RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/AsymmetricModel/AsymmetricCipher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/SymmetricModel/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/SymmetricModel/SymmetricCipher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/HillCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/HillCipher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="28" />
+    <option name="cachedIndexableFilesCount" value="29" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -51,10 +53,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Display.executor": "Run",
+    "Application.HillCipher.executor": "Debug",
     "Application.MainView.executor": "Run",
     "Application.MyApp.executor": "Run",
     "Application.MyView.executor": "Run",
     "Application.SubstitutionCipher.executor": "Run",
+    "Application.SymmetricCipher.executor": "Run",
     "Application.ViewHill.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
@@ -80,10 +84,10 @@
 }]]></component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1779285686586" />
-    <option name="spentUsd" value="0.08382525" />
+    <option name="spentUsd" value="0.12466025" />
   </component>
   <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="5" />
+    <option name="suspendCountdown" value="3" />
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -106,6 +110,7 @@
       <workItem from="1778331662024" duration="586000" />
       <workItem from="1778333346502" duration="896000" />
       <workItem from="1778337035652" duration="7011000" />
+      <workItem from="1778379110032" duration="8764000" />
     </task>
     <servers />
   </component>

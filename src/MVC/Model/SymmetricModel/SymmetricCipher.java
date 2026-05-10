@@ -9,7 +9,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
-public class AES {
+public class SymmetricCipher {
     private SecretKey key;
     IvParameterSpec iv;
     public SecretKey genKey() throws NoSuchAlgorithmException {
@@ -80,8 +80,8 @@ public class AES {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
         String text = " . Gáy sao cũng chấp nhận vì đó là sự thật hiển nhiên ";
-        AES aes = new AES();
-        aes.genKey();
+        SymmetricCipher aes = new SymmetricCipher();
+        System.out.println(aes.genKey());
         aes.genIV();
         byte[] re = aes.encrypt(text);
         System.out.println(Base64.getEncoder().encodeToString(re));
