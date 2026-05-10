@@ -1,4 +1,6 @@
 package MVC.View.AsymmetricView;
 
-public class ViewAsymmetric {
+import javax.swing.*;
+
+public class ViewAsymmetric extends JPanel {
 }

@@ -3,12 +3,17 @@ package MVC.Controller.SymmetricController;
 import MVC.Model.SymmetricModel.SymmetricCipher;
 import MVC.View.SymmetricView.ViewSymmetric;
 
+import javax.crypto.SecretKey;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.Base64;
 
 public class SymmetricController {
@@ -46,7 +51,7 @@ public class SymmetricController {
             public void actionPerformed(ActionEvent e) {
                 try {
                     genKey();
-                } catch (NoSuchAlgorithmException ex) {
+                } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
                     throw new RuntimeException(ex);
                 }
             }
@@ -69,12 +74,41 @@ public class SymmetricController {
                 decryptSymmetricFile();
             }
         });
+        viewSymmetric.getSaveKeyButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveKey();
+                } catch (NoSuchAlgorithmException | IOException | NoSuchProviderException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
-    public void genKey() throws NoSuchAlgorithmException {
+    public void genKey() throws NoSuchAlgorithmException, NoSuchProviderException {
         String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
         int keySize = Integer.parseInt(viewSymmetric.getKeySizeSymmetric().getSelectedItem().toString());
         symmetricCipher.genKey(algorithm, keySize);
-        symmetricCipher.genIV(algorithm);
+        if(symmetricCipher.genIV(algorithm) == null){
+            symmetricCipher.genIV(algorithm);
+        }
+    }
+    public void saveKey() throws NoSuchAlgorithmException, IOException, NoSuchProviderException {
+        String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
+        int keySize = Integer.parseInt(viewSymmetric.getKeySizeSymmetric().getSelectedItem().toString());
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("secret_key.txt"));
+        int choose = fileChooser.showSaveDialog(viewSymmetric);
+        if (choose != JFileChooser.APPROVE_OPTION) {
+            return;
+        }
+        File file = fileChooser.getSelectedFile();
+        SecretKey secretKey = symmetricCipher.genKey(algorithm, keySize);
+        String keyTxt = Base64.getEncoder().encodeToString(secretKey.getEncoded());
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        writer.write(keyTxt);
+        writer.close();
+        JOptionPane.showConfirmDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.OK_OPTION);
     }
     public void encryptSymmetric(){
         try {

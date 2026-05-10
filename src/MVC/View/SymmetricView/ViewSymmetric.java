@@ -2,6 +2,8 @@ package MVC.View.SymmetricView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ViewSymmetric extends JPanel {
     private JButton btnBack;
@@ -28,7 +30,7 @@ public class ViewSymmetric extends JPanel {
         JPanel optionPanel = new JPanel(new GridLayout(4,2,10,10));
         JLabel lb1 = new JLabel("Thuật toán đối xứng");
         optionPanel.add(lb1);
-        algorithmSymmetric = new JComboBox<>(new String[]{"AES","DES"});
+        algorithmSymmetric = new JComboBox<>(new String[]{"AES","DES","Camellia","Serpent","RC6","Twofish","CAST5"});
         optionPanel.add(algorithmSymmetric);
         JLabel lb2 = new JLabel("Mode");
         optionPanel.add(lb2);
@@ -87,29 +89,47 @@ public class ViewSymmetric extends JPanel {
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(btnClear);
         this.add(rightPanel, BorderLayout.EAST);
+
+        algorithmSymmetric.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nameAlgorithm = algorithmSymmetric.getSelectedItem().toString();
+                keySizeSymmetric.removeAllItems();
+                modeSymmetric.removeAllItems();
+                if (nameAlgorithm.equals("DES")) {
+                    keySizeSymmetric.addItem("56");
+                    modeSymmetric.addItem("CBC");
+                    modeSymmetric.addItem("ECB");
+                    modeSymmetric.addItem("CFB");
+                    modeSymmetric.addItem("OFB");
+                    modeSymmetric.addItem("PCBC");
+                }if(nameAlgorithm.equals("CAST5")){
+                    keySizeSymmetric.addItem("128");
+                    modeSymmetric.addItem("ECB");
+                } else{
+                    keySizeSymmetric.addItem("128");
+                    keySizeSymmetric.addItem("192");
+                    keySizeSymmetric.addItem("256");
+                    modeSymmetric.addItem("CBC");
+                    modeSymmetric.addItem("ECB");
+                    modeSymmetric.addItem("CFB");
+                    modeSymmetric.addItem("OFB");
+                    modeSymmetric.addItem("CTR");
+                    modeSymmetric.addItem("PCBC");
+                }
+            }
+        });
     }
 
-    public JButton getBackButton() {
-        return btnBack;
-    }
+    public JButton getBackButton() {return btnBack;}
     public JButton getGenKey(){
         return btnGenKey;
     }
-    public JTextArea getInputArea() {
-        return txtInput;
-    }
-    public JTextArea getOutputArea() {
-        return txtOutput;
-    }
-    public JButton getEncryptButton() {
-        return btnEncrypt;
-    }
-    public JButton getDecryptButton() {
-        return btnDecrypt;
-    }
-    public JButton getClearButton() {
-        return btnClear;
-    }
+    public JTextArea getInputArea() {return txtInput;}
+    public JTextArea getOutputArea() {return txtOutput;}
+    public JButton getEncryptButton() {return btnEncrypt;}
+    public JButton getDecryptButton() {return btnDecrypt;}
+    public JButton getClearButton() {return btnClear;}
     public JComboBox<String> getAlgorithmSymmetric() {return algorithmSymmetric;}
     public JComboBox<String> getModeSymmetric() {return modeSymmetric;}
     public JComboBox<String> getPaddingSymmetric() {return paddingSymmetric;}

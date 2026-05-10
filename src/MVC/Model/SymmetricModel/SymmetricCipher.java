@@ -4,22 +4,25 @@ import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
+import java.security.*;
 
 public class SymmetricCipher {
     private SecretKey key;
     IvParameterSpec iv;
-    public SecretKey genKey(String algorithm, int keySize) throws NoSuchAlgorithmException {
-        KeyGenerator keyGenerator = KeyGenerator.getInstance(algorithm);
+
+    public SymmetricCipher(){
+        if(Security.getProvider("BC") == null){
+            Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+        }
+    }
+    public SecretKey genKey(String algorithm, int keySize) throws NoSuchAlgorithmException, NoSuchProviderException {
+        KeyGenerator keyGenerator = KeyGenerator.getInstance(algorithm, "BC");
         keyGenerator.init(keySize);
         key = keyGenerator.generateKey();
         return key;
     }
     public IvParameterSpec genIV(String algorithm){
-        int block =  (algorithm.equalsIgnoreCase("DES"))? 8 : 16;
+        int block =  (algorithm.equals("DES"))? 8 : 16;
         iv = new IvParameterSpec(new byte[block]);
         return iv;
     }
@@ -30,8 +33,8 @@ public class SymmetricCipher {
         this.key = key;
     }
 
-    public byte[] encrypt(String txt, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-        Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding));
+    public byte[] encrypt(String txt, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, NoSuchProviderException {
+        Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding), "BC");
         if(mode.equalsIgnoreCase("ECB")){
             cipher.init(Cipher.ENCRYPT_MODE, this.key);
         }else{
@@ -41,8 +44,8 @@ public class SymmetricCipher {
         return cipher.doFinal(data);
     }
 
-    public String decrypt(byte[] data, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-        Cipher cipher =  Cipher.getInstance(transformation(algorithm, mode, padding));
+    public String decrypt(byte[] data, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, NoSuchProviderException {
+        Cipher cipher =  Cipher.getInstance(transformation(algorithm, mode, padding),"BC");
         if(mode.equalsIgnoreCase("ECB")){
             cipher.init(Cipher.DECRYPT_MODE, this.key);
         }else{
@@ -52,8 +55,8 @@ public class SymmetricCipher {
         return new String(bytes, StandardCharsets.UTF_8);
     }
 
-    public boolean encryptFile(String src, String des, String algorithm, String mode, String padding) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-        Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding));
+    public boolean encryptFile(String src, String des, String algorithm, String mode, String padding) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, NoSuchProviderException {
+        Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding), "BC");
         if(mode.equalsIgnoreCase("ECB")){
             cipher.init(Cipher.ENCRYPT_MODE, this.key);
         }else{
@@ -71,8 +74,8 @@ public class SymmetricCipher {
         input.close();
         return true;
     }
-    public boolean decryptFile(String src, String des, String algorithm, String mode, String padding) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-        Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding));
+    public boolean decryptFile(String src, String des, String algorithm, String mode, String padding) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, NoSuchProviderException {
+        Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding),"BC");
         if(mode.equalsIgnoreCase("ECB")){
             cipher.init(Cipher.DECRYPT_MODE, this.key);
         }else{
@@ -89,5 +92,11 @@ public class SymmetricCipher {
         cipherInputStream.close();
         output.close();
         return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(
+                Security.getProvider("BC")
+        );
     }
 }
