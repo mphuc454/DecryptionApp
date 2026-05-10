@@ -65,7 +65,7 @@ public class TranspositionController {
             String result = transpositionCipher.encrypt(input, key);
             viewTransposition.getOutputArea().setText(result);
         } catch (Exception e) {
-            viewTransposition.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
+            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
         }
     }
     public void decryptTransposition(){
@@ -75,7 +75,7 @@ public class TranspositionController {
             String result = transpositionCipher.decrypt(input, key);
             viewTransposition.getOutputArea().setText(result);
         } catch (Exception e) {
-            viewTransposition.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
+            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
         }
     }
     public void Clear(){

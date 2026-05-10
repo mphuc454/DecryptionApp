@@ -62,7 +62,7 @@ public class SubstitutionController {
             String res = substitutionCipher.encrypt(input);
             viewSubstitution.getOutputArea().setText(res);
         }catch (Exception e){
-            viewSubstitution.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
+            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
         }
     }
     public void decryptSubstitution(){
@@ -72,7 +72,7 @@ public class SubstitutionController {
             viewSubstitution.getOutputArea().setText(res);
 
         }catch (Exception e){
-            viewSubstitution.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
+            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
         }
     }
     public void Clear(){

@@ -32,7 +32,7 @@ public class ViewSymmetric extends JPanel {
         optionPanel.add(algorithmSymmetric);
         JLabel lb2 = new JLabel("Mode");
         optionPanel.add(lb2);
-        modeSymmetric = new JComboBox<>(new String[]{"CBC","ECB"});
+        modeSymmetric = new JComboBox<>(new String[]{"CBC","ECB","PCBC","CFB","OFB","CTR"});
         optionPanel.add(modeSymmetric);
         JLabel lb3 = new JLabel("Padding");
         optionPanel.add(lb3);
@@ -40,7 +40,7 @@ public class ViewSymmetric extends JPanel {
         optionPanel.add(paddingSymmetric);
         JLabel lb4 = new JLabel("Key size");
         optionPanel.add(lb4);
-        keySizeSymmetric = new JComboBox<>(new String[]{"56","128","168","256"});
+        keySizeSymmetric = new JComboBox<>(new String[]{"56","128","192","256"});
         optionPanel.add(keySizeSymmetric);
         topPanel.add(optionPanel, BorderLayout.CENTER);
         JPanel keyPanel = new JPanel();
@@ -87,7 +87,36 @@ public class ViewSymmetric extends JPanel {
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(btnClear);
         this.add(rightPanel, BorderLayout.EAST);
-
     }
+
+    public JButton getBackButton() {
+        return btnBack;
+    }
+    public JButton getGenKey(){
+        return btnGenKey;
+    }
+    public JTextArea getInputArea() {
+        return txtInput;
+    }
+    public JTextArea getOutputArea() {
+        return txtOutput;
+    }
+    public JButton getEncryptButton() {
+        return btnEncrypt;
+    }
+    public JButton getDecryptButton() {
+        return btnDecrypt;
+    }
+    public JButton getClearButton() {
+        return btnClear;
+    }
+    public JComboBox<String> getAlgorithmSymmetric() {return algorithmSymmetric;}
+    public JComboBox<String> getModeSymmetric() {return modeSymmetric;}
+    public JComboBox<String> getPaddingSymmetric() {return paddingSymmetric;}
+    public JComboBox<String> getKeySizeSymmetric() {return keySizeSymmetric;}
+    public JButton getEncryptFileButton() {return btnEncryptFile;}
+    public JButton getDecryptFileButton() {return btnDecryptFile;}
+    public JButton getSaveKeyButton() {return btnsaveKey;}
+
 
 }

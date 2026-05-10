@@ -1,5 +1,6 @@
 package MVC.View;
 
+import MVC.Controller.SymmetricController.SymmetricController;
 import MVC.Controller.TraditionalController.*;
 import MVC.Model.SymmetricModel.SymmetricCipher;
 import MVC.Model.TraditionalModel.*;
@@ -119,6 +120,7 @@ public class MainView extends JFrame {
 
         panelSymmetric = viewSymmetric;
         panel.add(panelSymmetric, "symmetric");
+        new SymmetricController(symmetricCipher, viewSymmetric, cardLayout, panel);
 
 
         btnSubstitution.addActionListener(new ActionListener() {

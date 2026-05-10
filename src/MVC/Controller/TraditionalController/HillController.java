@@ -75,7 +75,7 @@ public class HillController {
             String result = hillCipher.encrypt(input, key);
             viewHill.getOutputArea().setText(result);
         } catch (Exception e) {
-            viewHill.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
+            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
         }
     }
     public void decryptHill(){
@@ -89,7 +89,7 @@ public class HillController {
             String result =  hillCipher.decrypt(input, key);
             viewHill.getOutputArea().setText(result);
         } catch (Exception e) {
-            viewHill.getOutputArea().setText("Chưa tạo Key hoặc nhập key chưa hợp lệ");
+            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
         }
     }
     public void Clear(){
