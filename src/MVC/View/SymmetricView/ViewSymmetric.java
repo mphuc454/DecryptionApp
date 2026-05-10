@@ -34,7 +34,7 @@ public class ViewSymmetric extends JPanel {
         optionPanel.add(algorithmSymmetric);
         JLabel lb2 = new JLabel("Mode");
         optionPanel.add(lb2);
-        modeSymmetric = new JComboBox<>(new String[]{"CBC","ECB","PCBC","CFB","OFB","CTR"});
+        modeSymmetric = new JComboBox<>();
         optionPanel.add(modeSymmetric);
         JLabel lb3 = new JLabel("Padding");
         optionPanel.add(lb3);
@@ -42,7 +42,7 @@ public class ViewSymmetric extends JPanel {
         optionPanel.add(paddingSymmetric);
         JLabel lb4 = new JLabel("Key size");
         optionPanel.add(lb4);
-        keySizeSymmetric = new JComboBox<>(new String[]{"56","128","192","256"});
+        keySizeSymmetric = new JComboBox<>();
         optionPanel.add(keySizeSymmetric);
         topPanel.add(optionPanel, BorderLayout.CENTER);
         JPanel keyPanel = new JPanel();
@@ -94,19 +94,18 @@ public class ViewSymmetric extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nameAlgorithm = algorithmSymmetric.getSelectedItem().toString();
-                keySizeSymmetric.removeAllItems();
                 modeSymmetric.removeAllItems();
+                keySizeSymmetric.removeAllItems();
                 if (nameAlgorithm.equals("DES")) {
                     keySizeSymmetric.addItem("56");
                     modeSymmetric.addItem("CBC");
                     modeSymmetric.addItem("ECB");
                     modeSymmetric.addItem("CFB");
                     modeSymmetric.addItem("OFB");
-                    modeSymmetric.addItem("PCBC");
-                }if(nameAlgorithm.equals("CAST5")){
+                }else if(nameAlgorithm.equals("CAST5")){
                     keySizeSymmetric.addItem("128");
                     modeSymmetric.addItem("ECB");
-                } else{
+                }else{
                     keySizeSymmetric.addItem("128");
                     keySizeSymmetric.addItem("192");
                     keySizeSymmetric.addItem("256");
@@ -115,7 +114,6 @@ public class ViewSymmetric extends JPanel {
                     modeSymmetric.addItem("CFB");
                     modeSymmetric.addItem("OFB");
                     modeSymmetric.addItem("CTR");
-                    modeSymmetric.addItem("PCBC");
                 }
             }
         });
