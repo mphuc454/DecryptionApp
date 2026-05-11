@@ -1,9 +1,12 @@
 package MVC.View;
 
+import MVC.Controller.AsymmetricController.AsymmetricController;
 import MVC.Controller.SymmetricController.SymmetricController;
 import MVC.Controller.TraditionalController.*;
+import MVC.Model.AsymmetricModel.AsymmetricCipher;
 import MVC.Model.SymmetricModel.SymmetricCipher;
 import MVC.Model.TraditionalModel.*;
+import MVC.View.AsymmetricView.ViewAsymmetric;
 import MVC.View.SymmetricView.ViewSymmetric;
 import MVC.View.TraditionalView.*;
 
@@ -28,6 +31,8 @@ public class MainView extends JFrame {
     JPanel panelTransposition;
     JPanel panelHill;
     JPanel panelSymmetric;
+    JPanel panelAsymmetric;
+    JPanel panelHash;
     ViewCaesar viewCaesar = new ViewCaesar();
     CaesarCipher caesarCipher = new CaesarCipher();
     ViewSubstitution viewSubstitution = new ViewSubstitution();
@@ -42,13 +47,14 @@ public class MainView extends JFrame {
     HillCipher hillCipher = new HillCipher();
     ViewSymmetric viewSymmetric = new ViewSymmetric();
     SymmetricCipher symmetricCipher = new SymmetricCipher();
+    ViewAsymmetric viewAsymmetric = new ViewAsymmetric();
+    AsymmetricCipher asymmetricCipher = new AsymmetricCipher();
 
     public MainView(){
         this.setTitle("App Encryption Basic");
         this.setSize(850, 600);
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         menuContent.setLayout(new BoxLayout(menuContent, BoxLayout.Y_AXIS));
         panelMenu.setLayout(new BorderLayout());
 
@@ -122,6 +128,10 @@ public class MainView extends JFrame {
         panel.add(panelSymmetric, "symmetric");
         new SymmetricController(symmetricCipher, viewSymmetric, cardLayout, panel);
 
+        panelAsymmetric = viewAsymmetric;
+        panel.add(panelAsymmetric, "asymmetric");
+        new AsymmetricController(asymmetricCipher, viewAsymmetric, cardLayout, panel);
+
 
         btnSubstitution.addActionListener(new ActionListener() {
             @Override
@@ -163,6 +173,12 @@ public class MainView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(panel,"symmetric");
+            }
+        });
+        btnAsymmetric.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panel,"asymmetric");
             }
         });
 

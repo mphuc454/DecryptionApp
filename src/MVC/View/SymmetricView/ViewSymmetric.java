@@ -34,7 +34,7 @@ public class ViewSymmetric extends JPanel {
         optionPanel.add(algorithmSymmetric);
         JLabel lb2 = new JLabel("Mode");
         optionPanel.add(lb2);
-        modeSymmetric = new JComboBox<>();
+        modeSymmetric = new JComboBox<>(new String[] {"CBC","ECB","CFB","OFB","CTR"});
         optionPanel.add(modeSymmetric);
         JLabel lb3 = new JLabel("Padding");
         optionPanel.add(lb3);
@@ -42,7 +42,7 @@ public class ViewSymmetric extends JPanel {
         optionPanel.add(paddingSymmetric);
         JLabel lb4 = new JLabel("Key size");
         optionPanel.add(lb4);
-        keySizeSymmetric = new JComboBox<>();
+        keySizeSymmetric = new JComboBox<>(new String[] {"128","192","256"});
         optionPanel.add(keySizeSymmetric);
         topPanel.add(optionPanel, BorderLayout.CENTER);
         JPanel keyPanel = new JPanel();
@@ -120,9 +120,7 @@ public class ViewSymmetric extends JPanel {
     }
 
     public JButton getBackButton() {return btnBack;}
-    public JButton getGenKey(){
-        return btnGenKey;
-    }
+    public JButton getGenKey(){return btnGenKey;}
     public JTextArea getInputArea() {return txtInput;}
     public JTextArea getOutputArea() {return txtOutput;}
     public JButton getEncryptButton() {return btnEncrypt;}

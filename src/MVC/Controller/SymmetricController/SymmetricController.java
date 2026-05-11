@@ -99,15 +99,14 @@ public class SymmetricController {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setSelectedFile(new File("secret_key.txt"));
         int choose = fileChooser.showSaveDialog(viewSymmetric);
-        if (choose != JFileChooser.APPROVE_OPTION) {
-            return;
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            SecretKey secretKey = symmetricCipher.genKey(algorithm, keySize);
+            String keyTxt = Base64.getEncoder().encodeToString(secretKey.getEncoded());
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyTxt);
+            writer.close();
         }
-        File file = fileChooser.getSelectedFile();
-        SecretKey secretKey = symmetricCipher.genKey(algorithm, keySize);
-        String keyTxt = Base64.getEncoder().encodeToString(secretKey.getEncoded());
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        writer.write(keyTxt);
-        writer.close();
         JOptionPane.showConfirmDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.OK_OPTION);
     }
     public void encryptSymmetric(){
@@ -127,21 +126,19 @@ public class SymmetricController {
         try {
             JFileChooser fileChooser = new JFileChooser();
             int choose = fileChooser.showOpenDialog(viewSymmetric);
-            if (choose != JFileChooser.APPROVE_OPTION) {
-                return;
+            if (choose == JFileChooser.APPROVE_OPTION) {
+                File inputFile = fileChooser.getSelectedFile();
+                File outputFile = new File(inputFile.getParent(), "encrypt_"+inputFile.getName());
+                fileChooser.setSelectedFile(outputFile);
+                int resultFile = fileChooser.showSaveDialog(viewSymmetric);
+                if (resultFile == JFileChooser.APPROVE_OPTION) {
+                    outputFile = fileChooser.getSelectedFile();
+                    String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
+                    String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
+                    String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();
+                    symmetricCipher.encryptFile(inputFile.getAbsolutePath(), outputFile.getAbsolutePath(), algorithm, mode, padding);
+                }
             }
-            File inputFile = fileChooser.getSelectedFile();
-            File outputFile = new File(inputFile.getParent(), "encrypt_"+inputFile.getName());
-            fileChooser.setSelectedFile(outputFile);
-            int resultFile = fileChooser.showSaveDialog(viewSymmetric);
-            if (resultFile != JFileChooser.APPROVE_OPTION) {
-                return;
-            }
-            outputFile = fileChooser.getSelectedFile();
-            String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
-            String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
-            String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();
-            symmetricCipher.encryptFile(inputFile.getAbsolutePath(), outputFile.getAbsolutePath(), algorithm, mode, padding);
             JOptionPane.showConfirmDialog(null, "Mã hoá file thành công", "Thành công", JOptionPane.OK_OPTION);
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Mã hoá file thất bại","Lỗi",JOptionPane.ERROR_MESSAGE);
@@ -164,21 +161,19 @@ public class SymmetricController {
         try {
             JFileChooser fileChooser = new JFileChooser();
             int choose = fileChooser.showOpenDialog(viewSymmetric);
-            if (choose != JFileChooser.APPROVE_OPTION) {
-                return;
+            if (choose == JFileChooser.APPROVE_OPTION) {
+                File inputFile = fileChooser.getSelectedFile();
+                File outputFile = new File(inputFile.getParent(), "decrypt_"+inputFile.getName());
+                fileChooser.setSelectedFile(outputFile);
+                int resultFile = fileChooser.showSaveDialog(viewSymmetric);
+                if (resultFile == JFileChooser.APPROVE_OPTION) {
+                    outputFile = fileChooser.getSelectedFile();
+                    String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
+                    String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
+                    String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();
+                    symmetricCipher.decryptFile(inputFile.getAbsolutePath(), outputFile.getAbsolutePath(), algorithm, mode, padding);
+                }
             }
-            File inputFile = fileChooser.getSelectedFile();
-            File outputFile = new File(inputFile.getParent(), "decrypt_"+inputFile.getName());
-            fileChooser.setSelectedFile(outputFile);
-            int resultFile = fileChooser.showSaveDialog(viewSymmetric);
-            if (resultFile != JFileChooser.APPROVE_OPTION) {
-                return;
-            }
-            outputFile = fileChooser.getSelectedFile();
-            String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
-            String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
-            String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();
-            symmetricCipher.decryptFile(inputFile.getAbsolutePath(), outputFile.getAbsolutePath(), algorithm, mode, padding);
             JOptionPane.showConfirmDialog(null, "Giải mã file thành công", "Thành công", JOptionPane.OK_OPTION);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Giải mã file thất bại","Lỗi",JOptionPane.ERROR_MESSAGE);
