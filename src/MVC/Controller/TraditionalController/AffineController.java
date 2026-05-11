@@ -54,8 +54,8 @@ public class AffineController {
     }
 
     public void genKey() {
-        int n = new Random().nextInt(179);
-        int m = new Random().nextInt(179);
+        int n = new Random().nextInt(26);
+        int m = new Random().nextInt(26);
         viewAffine.getKeyFieldA().setText(String.valueOf(n));
         viewAffine.getKeyFieldB().setText(String.valueOf(m));
     }

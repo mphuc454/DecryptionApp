@@ -1,4 +1,4 @@
-package MVC.Model.SymmetricModel;
+package MVC.Model.OtherModel;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;

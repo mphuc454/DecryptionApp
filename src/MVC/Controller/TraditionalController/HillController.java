@@ -54,14 +54,29 @@ public class HillController {
     }
 
     public void genKey() {
-        int a = new Random().nextInt(179);
-        int b = new Random().nextInt(179);
-        int c = new Random().nextInt(179);
-        int d = new Random().nextInt(179);
+        Random random = new Random();
+        int a = 0, b = 0, c = 0, d = 0;
+        int det = 0;
+        while(gcd(det, 26)!=1){
+            a = random.nextInt(26);
+            b = random.nextInt(26);
+            c = random.nextInt(26);
+            d = random.nextInt(26);
+            det = ((a*d)-(b*c) % 26 + 26) % 26;
+        }
         viewHill.getKeyFieldA().setText(String.valueOf(a));
         viewHill.getKeyFieldB().setText(String.valueOf(b));
         viewHill.getKeyFieldC().setText(String.valueOf(c));
         viewHill.getKeyFieldD().setText(String.valueOf(d));
+    }
+
+    private int gcd(int det, int i) {
+        while(i != 0){
+            int temp = i;
+            i = det % i;
+            det = temp;
+        }
+        return det;
     }
 
     public void encryptHill(){

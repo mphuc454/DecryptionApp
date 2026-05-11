@@ -6,13 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="74525df1-d2e6-4b35-bb50-475610d814ce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/AsymmetricController/AsymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/AsymmetricController/AsymmetricController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/SymmetricController/SymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/SymmetricController/SymmetricController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/AsymmetricModel/AsymmetricCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/AsymmetricModel/AsymmetricCipher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/SymmetricModel/SymmetricCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/SymmetricModel/SymmetricCipher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/AsymmetricView/ViewAsymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/AsymmetricView/ViewAsymmetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/AsymmetricController/AsymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/SymmetricController/SymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/AsymmetricModel/AsymmetricCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/OtherModel/AsymmetricCipher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/SymmetricModel/SymmetricCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/OtherModel/SymmetricCipher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/AsymmetricView/ViewAsymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewAsymmetric.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/SymmetricView/ViewSymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/SymmetricView/ViewSymmetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/SymmetricView/ViewSymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewSymmetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,40 +51,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AsymmetricCipher.executor": "Run",
-    "Application.Display.executor": "Run",
-    "Application.HillCipher.executor": "Debug",
-    "Application.MainView.executor": "Run",
-    "Application.MyApp.executor": "Run",
-    "Application.MyView.executor": "Run",
-    "Application.SubstitutionCipher.executor": "Run",
-    "Application.SymmetricCipher.executor": "Run",
-    "Application.ViewHill.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AsymmetricCipher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Display.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HillCipher.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MainView.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyView.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SubstitutionCipher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SymmetricCipher.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ViewHill.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1779285686586" />
     <option name="spentUsd" value="0.24771476" />
@@ -121,6 +126,7 @@
       <workItem from="1778428069500" duration="489000" />
       <workItem from="1778428607993" duration="526000" />
       <workItem from="1778465501517" duration="4836000" />
+      <workItem from="1778507839040" duration="7580000" />
     </task>
     <servers />
   </component>

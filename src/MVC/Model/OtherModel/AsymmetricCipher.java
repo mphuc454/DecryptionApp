@@ -1,4 +1,4 @@
-package MVC.Model.AsymmetricModel;
+package MVC.Model.OtherModel;
 
 import javax.crypto.*;
 import java.io.*;
@@ -79,7 +79,7 @@ public class AsymmetricCipher {
         }
     }
 
-    private byte[] encrypt(String data, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException,
+    public byte[] encrypt(String data, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding));
         byte[] in = data.getBytes(StandardCharsets.UTF_8);
@@ -88,7 +88,7 @@ public class AsymmetricCipher {
         return out;
     }
 
-    private String decrypt(String data, String des, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException,
+    public String decrypt(String data, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException,
             InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding));
         byte[] in = Base64.getDecoder().decode(data);
@@ -101,17 +101,41 @@ public class AsymmetricCipher {
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException, IOException {
         AsymmetricCipher rsa = new AsymmetricCipher();
         rsa.genKey("RSA", 2048);
+        String plainText = "Hello RSA Encryption";
+        String encrypted = rsa.encryptBase64(
+                plainText,
+                "RSA",
+                "ECB",
+                "PKCS1Padding"
+        );
 
-        System.out.println("Public Key: " + rsa.getPublicKey());
-        System.out.println("Private Key: " + rsa.getPrivateKey());
+        System.out.println("\nEncrypted:");
+        System.out.println(encrypted);
 
-        String f = "C:\\Users\\mphuc\\Downloads\\22130218_NguyenHoangPhuc_1.docx";
-        String enc = "C:\\Users\\mphuc\\Downloads\\2.doc";
-        String dec = "C:\\Users\\mphuc\\Downloads\\3.doc";
+        // decrypt
+        String decrypted = rsa.decrypt(
+                encrypted,
+                "RSA",
+                "ECB",
+                "PKCS1Padding"
+        );
 
-        rsa.encryptFile(f, enc, "RSA", "ECB", "PKCS1Padding");
+        System.out.println("\nDecrypted:");
+        System.out.println(decrypted);
 
-        rsa.decryptFile(enc, dec, "RSA", "ECB", "PKCS1Padding");
+//        rsa.genKey("RSA", 2048);
+//
+//        System.out.println("Public Key: " + rsa.getPublicKey());
+//        System.out.println("Private Key: " + rsa.getPrivateKey());
+//
+//        String f = "C:\\Users\\mphuc\\Downloads\\22130218_NguyenHoangPhuc_1.docx";
+//        String enc = "C:\\Users\\mphuc\\Downloads\\2.doc";
+//        String dec = "C:\\Users\\mphuc\\Downloads\\3.doc";
+//
+//        rsa.encryptFile(f, enc, "RSA", "ECB", "PKCS1Padding");
+//
+//        rsa.decryptFile(enc, dec, "RSA", "ECB", "PKCS1Padding");
+
     }
 
 }

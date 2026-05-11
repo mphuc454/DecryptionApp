@@ -1,14 +1,17 @@
-package MVC.View.AsymmetricView;
+package MVC.View.OtherView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ViewAsymmetric extends JPanel {
+public class ViewSymmetric extends JPanel {
     private JButton btnBack;
-    private JComboBox<String>algorithmASymmetric;
-    private JComboBox<String>modeASymmetric;
-    private JComboBox<String>paddingASymmetric;
-    private JComboBox<String>keySizeASymmetric;
+    private JComboBox<String>algorithmSymmetric;
+    private JComboBox<String>modeSymmetric;
+    private JComboBox<String>paddingSymmetric;
+    private JComboBox<String>keySizeSymmetric;
+    private JTextField inputKey;
     private JTextArea txtInput;
     private JTextArea txtOutput;
     private JButton btnEncrypt;
@@ -17,43 +20,43 @@ public class ViewAsymmetric extends JPanel {
     private JButton btnDecryptFile;
     private JButton btnClear;
     private JButton btnGenKey;
-    private JButton btnPublicKey;
-    private JButton btnPrivateKey;
+    private JButton btnsaveKey;
 
-    public ViewAsymmetric(){
+    public ViewSymmetric(){
         this.setLayout(new BorderLayout(10,10));
 
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
-        JPanel optionPanel = new JPanel(new GridLayout(4,2,10,10));
+        JPanel optionPanel = new JPanel(new GridLayout(5,2,10,10));
         JLabel lb1 = new JLabel("Thuật toán đối xứng");
         optionPanel.add(lb1);
-        algorithmASymmetric = new JComboBox<>(new String[]{"RSA"});
-        optionPanel.add(algorithmASymmetric);
+        algorithmSymmetric = new JComboBox<>(new String[]{"AES","DES","Camellia","Serpent","RC6","Twofish","CAST5"});
+        optionPanel.add(algorithmSymmetric);
         JLabel lb2 = new JLabel("Mode");
         optionPanel.add(lb2);
-        modeASymmetric = new JComboBox<>(new String[] {"ECB"});
-        optionPanel.add(modeASymmetric);
+        modeSymmetric = new JComboBox<>(new String[] {"CBC","ECB","CFB","OFB","CTR"});
+        optionPanel.add(modeSymmetric);
         JLabel lb3 = new JLabel("Padding");
         optionPanel.add(lb3);
-        paddingASymmetric = new JComboBox<>(new String[]{"PKCS1Padding","OAEPWithSHA-1AndMGF1Padding","OAEPWithSHA-256AndMGF1Padding"});
-        optionPanel.add(paddingASymmetric);
+        paddingSymmetric = new JComboBox<>(new String[]{"PKCS5Padding","NoPadding"});
+        optionPanel.add(paddingSymmetric);
         JLabel lb4 = new JLabel("Key size");
         optionPanel.add(lb4);
-        keySizeASymmetric = new JComboBox<>(new String[]{"1024","2048"});
-        optionPanel.add(keySizeASymmetric);
+        keySizeSymmetric = new JComboBox<>(new String[] {"128","192","256"});
+        optionPanel.add(keySizeSymmetric);
+        JLabel lb = new JLabel("Nhập khoá: ");
+        optionPanel.add(lb);
+        inputKey = new JTextField(60);
+        optionPanel.add(inputKey);
         topPanel.add(optionPanel, BorderLayout.CENTER);
         JPanel keyPanel = new JPanel();
         keyPanel.setLayout(new BoxLayout(keyPanel, BoxLayout.Y_AXIS));
         btnGenKey= new JButton("Tạo key");
-        btnPublicKey = new JButton("Lưu Public Key");
-        btnPrivateKey = new JButton("Lưu Private Key");
+        btnsaveKey = new JButton("Lưu key");
         keyPanel.add(btnGenKey);
         keyPanel.add(Box.createVerticalStrut(10));
-        keyPanel.add(btnPublicKey);
-        keyPanel.add(Box.createVerticalStrut(10));
-        keyPanel.add(btnPrivateKey);
+        keyPanel.add(btnsaveKey);
         topPanel.add(keyPanel, BorderLayout.EAST);
         this.add(topPanel, BorderLayout.NORTH);
 
@@ -91,22 +94,50 @@ public class ViewAsymmetric extends JPanel {
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(btnClear);
         this.add(rightPanel, BorderLayout.EAST);
+
+        algorithmSymmetric.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nameAlgorithm = algorithmSymmetric.getSelectedItem().toString();
+                modeSymmetric.removeAllItems();
+                keySizeSymmetric.removeAllItems();
+                if (nameAlgorithm.equals("DES")) {
+                    keySizeSymmetric.addItem("56");
+                    modeSymmetric.addItem("CBC");
+                    modeSymmetric.addItem("ECB");
+                    modeSymmetric.addItem("CFB");
+                    modeSymmetric.addItem("OFB");
+                }else if(nameAlgorithm.equals("CAST5")){
+                    keySizeSymmetric.addItem("128");
+                    modeSymmetric.addItem("ECB");
+                }else{
+                    keySizeSymmetric.addItem("128");
+                    keySizeSymmetric.addItem("192");
+                    keySizeSymmetric.addItem("256");
+                    modeSymmetric.addItem("CBC");
+                    modeSymmetric.addItem("ECB");
+                    modeSymmetric.addItem("CFB");
+                    modeSymmetric.addItem("OFB");
+                    modeSymmetric.addItem("CTR");
+                }
+            }
+        });
     }
+    public JTextField getKeyField() {return inputKey;}
     public JButton getBackButton() {return btnBack;}
-    public JButton getGenKey(){
-        return btnGenKey;
-    }
+    public JButton getGenKey(){return btnGenKey;}
     public JTextArea getInputArea() {return txtInput;}
     public JTextArea getOutputArea() {return txtOutput;}
     public JButton getEncryptButton() {return btnEncrypt;}
     public JButton getDecryptButton() {return btnDecrypt;}
     public JButton getClearButton() {return btnClear;}
-    public JComboBox<String> getAlgorithmASymmetric() {return algorithmASymmetric;}
-    public JComboBox<String> getModeASymmetric() {return modeASymmetric;}
-    public JComboBox<String> getPaddingASymmetric() {return paddingASymmetric;}
-    public JComboBox<String> getKeySizeASymmetric() {return keySizeASymmetric;}
+    public JComboBox<String> getAlgorithmSymmetric() {return algorithmSymmetric;}
+    public JComboBox<String> getModeSymmetric() {return modeSymmetric;}
+    public JComboBox<String> getPaddingSymmetric() {return paddingSymmetric;}
+    public JComboBox<String> getKeySizeSymmetric() {return keySizeSymmetric;}
     public JButton getEncryptFileButton() {return btnEncryptFile;}
     public JButton getDecryptFileButton() {return btnDecryptFile;}
-    public JButton getSavePK() {return btnPublicKey;}
-    public JButton getSavePrivateK() {return btnPrivateKey;}
+    public JButton getSaveKeyButton() {return btnsaveKey;}
+
+
 }

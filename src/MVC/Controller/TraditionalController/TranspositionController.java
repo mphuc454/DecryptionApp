@@ -54,7 +54,7 @@ public class TranspositionController {
         });
     }
     public void genKey() {
-        int n = new Random().nextInt(179);
+        int n = new Random().nextInt(26);
         viewTransposition.getKeyField().setText(String.valueOf(n));
     }
 

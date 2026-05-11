@@ -23,7 +23,6 @@ public class ViewSubstitution extends JPanel {
         JLabel lb = new JLabel("Nhập khoá: ");
         keyPanel.add(lb);
         txtKey = new JTextField(60);
-        txtKey.setEditable(false);
         keyPanel.add(txtKey);
         topPanel.add(keyPanel, BorderLayout.CENTER);
         btnGenKey = new JButton("TẠO KEY");

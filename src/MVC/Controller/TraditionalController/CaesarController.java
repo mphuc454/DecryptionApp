@@ -55,7 +55,7 @@ public class CaesarController {
     }
 
     public void genKey() {
-        int n = new Random().nextInt(179);
+        int n = new Random().nextInt(26);
         viewCaesar.getKeyField().setText(String.valueOf(n));
     }
 

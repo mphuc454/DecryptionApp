@@ -1,13 +1,13 @@
 package MVC.View;
 
-import MVC.Controller.AsymmetricController.AsymmetricController;
-import MVC.Controller.SymmetricController.SymmetricController;
+import MVC.Controller.OtherController.AsymmetricController;
+import MVC.Controller.OtherController.SymmetricController;
 import MVC.Controller.TraditionalController.*;
-import MVC.Model.AsymmetricModel.AsymmetricCipher;
-import MVC.Model.SymmetricModel.SymmetricCipher;
+import MVC.Model.OtherModel.AsymmetricCipher;
+import MVC.Model.OtherModel.SymmetricCipher;
 import MVC.Model.TraditionalModel.*;
-import MVC.View.AsymmetricView.ViewAsymmetric;
-import MVC.View.SymmetricView.ViewSymmetric;
+import MVC.View.OtherView.ViewAsymmetric;
+import MVC.View.OtherView.ViewSymmetric;
 import MVC.View.TraditionalView.*;
 
 import javax.swing.*;
