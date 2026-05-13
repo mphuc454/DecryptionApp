@@ -68,7 +68,7 @@ public class AffineController {
             String result = affineCipher.encrypt(input, keyA, keyB);
             viewAffine.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Mã hoá không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void decryptAffine(){
@@ -79,7 +79,7 @@ public class AffineController {
             String result = affineCipher.decrypt(input, keyA, keyB);
             viewAffine.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){

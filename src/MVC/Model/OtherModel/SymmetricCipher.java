@@ -32,6 +32,8 @@ public class SymmetricCipher {
     public void loadKey(SecretKey key){
         this.key = key;
     }
+    public  SecretKey getKey(){return key;}
+    public void setIV(IvParameterSpec iv) {this.iv = iv;}
 
     public byte[] encrypt(String txt, String algorithm, String mode, String padding) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, NoSuchProviderException {
         Cipher cipher = Cipher.getInstance(transformation(algorithm, mode, padding), "BC");
@@ -92,11 +94,5 @@ public class SymmetricCipher {
         cipherInputStream.close();
         output.close();
         return true;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                Security.getProvider("BC")
-        );
     }
 }

@@ -21,10 +21,13 @@ public class SubstitutionCipher{
         }
         return builder.toString();
     }
-    String mappingAlphabet = randomMappingAlphabet();
+    String mappingAlphabet = null;
 
 
     public String encrypt(String txt) {
+        if(mappingAlphabet.isEmpty()){
+            return "Chưa tạo key";
+        }
         StringBuilder builder = new StringBuilder();
         for(char c: txt.toCharArray()){
             if(Alphabet.indexOf(c) != -1){
@@ -36,6 +39,9 @@ public class SubstitutionCipher{
         return builder.toString();
     }
     public String decrypt(String txt) {
+        if(mappingAlphabet.isEmpty()){
+            return "Chưa tạo key";
+        }
         StringBuilder builder = new StringBuilder();
         for(char c: txt.toCharArray()){
             if(mappingAlphabet.indexOf(c) != -1){
@@ -46,10 +52,7 @@ public class SubstitutionCipher{
         }
         return builder.toString();
     }
-
-    public static void main(String[] args) {
-        SubstitutionCipher sc = new SubstitutionCipher();
-        System.out.println(sc.mappingAlphabet);
+    public void setMappingAlphabet(String mappingAlphabet){
+        this.mappingAlphabet = mappingAlphabet;
     }
-
 }

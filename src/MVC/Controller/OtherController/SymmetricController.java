@@ -52,7 +52,7 @@ public class SymmetricController {
                 try {
                     genKey();
                 } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
-                    JOptionPane.showMessageDialog(null, "Thuật toán không thể hỗ trợ được", "Thất bại", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Thuật toán không thể hỗ trợ được", "Lỗi", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -80,7 +80,7 @@ public class SymmetricController {
                 try {
                     saveKey();
                 } catch (NoSuchAlgorithmException | IOException | NoSuchProviderException ex) {
-                    JOptionPane.showMessageDialog(null, "Lỗi không thể tải file được", "Thất bại", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Lỗi không thể tải file được", "Lỗi", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -88,29 +88,36 @@ public class SymmetricController {
     public void genKey() throws NoSuchAlgorithmException, NoSuchProviderException {
         String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
         int keySize = Integer.parseInt(viewSymmetric.getKeySizeSymmetric().getSelectedItem().toString());
-        String key = Base64.getEncoder().encodeToString(symmetricCipher.genKey(algorithm, keySize).getEncoded());
-        if(symmetricCipher.genIV(algorithm) == null){
-            symmetricCipher.genIV(algorithm);
-        }
+        SecretKey secretKey = symmetricCipher.genKey(algorithm, keySize);
+        String key = Base64.getEncoder().encodeToString(secretKey.getEncoded());
+        symmetricCipher.genIV(algorithm);
         viewSymmetric.getKeyField().setText(key);
     }
     public void saveKey() throws NoSuchAlgorithmException, IOException, NoSuchProviderException {
-        String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
-        int keySize = Integer.parseInt(viewSymmetric.getKeySizeSymmetric().getSelectedItem().toString());
+        if(symmetricCipher.getKey() == null){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setSelectedFile(new File("secret_key.txt"));
         int choose = fileChooser.showSaveDialog(viewSymmetric);
         if (choose == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            SecretKey secretKey = symmetricCipher.genKey(algorithm, keySize);
+            SecretKey secretKey = symmetricCipher.getKey();
             String keyTxt = Base64.getEncoder().encodeToString(secretKey.getEncoded());
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(keyTxt);
             writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file key thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
     }
     public void encryptSymmetric(){
+        if(symmetricCipher.getKey() == null){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewSymmetric.getInputArea().getText();
             String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
@@ -120,10 +127,14 @@ public class SymmetricController {
             String result = Base64.getEncoder().encodeToString(re);
             viewSymmetric.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Mã hoá không thành công","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Mã hoá không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void encryptSymmetricFile(){
+        if(symmetricCipher.getKey() == null){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             JFileChooser fileChooser = new JFileChooser();
             int choose = fileChooser.showOpenDialog(viewSymmetric);
@@ -138,14 +149,20 @@ public class SymmetricController {
                     String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
                     String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();
                     symmetricCipher.encryptFile(inputFile.getAbsolutePath(), outputFile.getAbsolutePath(), algorithm, mode, padding);
+                    JOptionPane.showMessageDialog(null, "Mã hoá file thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Đã huỷ","Thông báo",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-            JOptionPane.showMessageDialog(null, "Mã hoá file thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Mã hoá file thất bại","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void decryptSymmetric(){
+        if(symmetricCipher.getKey() == null){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewSymmetric.getInputArea().getText();
             String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
@@ -155,10 +172,14 @@ public class SymmetricController {
             String result = symmetricCipher.decrypt(encrypted, algorithm, mode, padding);
             viewSymmetric.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Giải mã không thành công","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void decryptSymmetricFile(){
+        if(symmetricCipher.getKey() == null){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             JFileChooser fileChooser = new JFileChooser();
             int choose = fileChooser.showOpenDialog(viewSymmetric);
@@ -173,9 +194,11 @@ public class SymmetricController {
                     String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
                     String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();
                     symmetricCipher.decryptFile(inputFile.getAbsolutePath(), outputFile.getAbsolutePath(), algorithm, mode, padding);
+                    JOptionPane.showMessageDialog(null, "Giải mã file thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Đã huỷ","Thông báo",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-            JOptionPane.showMessageDialog(null, "Giải mã file thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Giải mã file thất bại","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
@@ -185,6 +208,8 @@ public class SymmetricController {
         viewSymmetric.getKeyField().setText("");
         viewSymmetric.getInputArea().setText("");
         viewSymmetric.getOutputArea().setText("");
+        symmetricCipher.loadKey(null);
+        symmetricCipher.setIV(null);
     }
 
 }

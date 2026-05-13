@@ -4,6 +4,9 @@ import javax.crypto.*;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 public class AsymmetricCipher {
@@ -32,6 +35,12 @@ public class AsymmetricCipher {
     }
     public PrivateKey getPrivateKey(){
         return privateKey;
+    }
+    public void setPrivateKey(PrivateKey privateKey){
+        this.privateKey = privateKey;
+    }
+    public void setPublicKey(PublicKey publicKey){
+        this.publicKey = publicKey;
     }
 
     public String transformation(String algorithm, String mode, String padding){
@@ -96,46 +105,4 @@ public class AsymmetricCipher {
         byte[] out = cipher.doFinal(in);
         return new String(out, StandardCharsets.UTF_8);
     }
-
-    public static void main(String[] args) throws NoSuchAlgorithmException, NoSuchPaddingException,
-            IllegalBlockSizeException, BadPaddingException, InvalidKeyException, IOException {
-        AsymmetricCipher rsa = new AsymmetricCipher();
-        rsa.genKey("RSA", 2048);
-        String plainText = "Hello RSA Encryption";
-        String encrypted = rsa.encryptBase64(
-                plainText,
-                "RSA",
-                "ECB",
-                "PKCS1Padding"
-        );
-
-        System.out.println("\nEncrypted:");
-        System.out.println(encrypted);
-
-        // decrypt
-        String decrypted = rsa.decrypt(
-                encrypted,
-                "RSA",
-                "ECB",
-                "PKCS1Padding"
-        );
-
-        System.out.println("\nDecrypted:");
-        System.out.println(decrypted);
-
-//        rsa.genKey("RSA", 2048);
-//
-//        System.out.println("Public Key: " + rsa.getPublicKey());
-//        System.out.println("Private Key: " + rsa.getPrivateKey());
-//
-//        String f = "C:\\Users\\mphuc\\Downloads\\22130218_NguyenHoangPhuc_1.docx";
-//        String enc = "C:\\Users\\mphuc\\Downloads\\2.doc";
-//        String dec = "C:\\Users\\mphuc\\Downloads\\3.doc";
-//
-//        rsa.encryptFile(f, enc, "RSA", "ECB", "PKCS1Padding");
-//
-//        rsa.decryptFile(enc, dec, "RSA", "ECB", "PKCS1Padding");
-
-    }
-
 }

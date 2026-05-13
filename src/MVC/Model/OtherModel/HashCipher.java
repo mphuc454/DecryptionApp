@@ -25,4 +25,8 @@ public class HashCipher {
         BigInteger number = new BigInteger(1, dis.getMessageDigest().digest());
         return number.toString(16);
     }
+
+    public static void main(String[] args) {
+        System.out.println();
+    }
 }

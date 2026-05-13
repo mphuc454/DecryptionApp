@@ -54,7 +54,7 @@ public class VigenereController {
             String result = vigenereCipher.encrypt(input, repeatKey);
             viewVigenere.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Mã hoá không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void decryptVigenere(){
@@ -65,7 +65,7 @@ public class VigenereController {
             String result = vigenereCipher.decrypt(input, repeatKey);
             viewVigenere.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){

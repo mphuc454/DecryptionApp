@@ -53,6 +53,7 @@ public class SubstitutionController {
     }
     public void genKey() {
         String res = substitutionCipher.randomMappingAlphabet();
+        substitutionCipher.setMappingAlphabet(res);
         viewSubstitution.getKeyField().setText(res);
     }
 
@@ -62,7 +63,7 @@ public class SubstitutionController {
             String res = substitutionCipher.encrypt(input);
             viewSubstitution.getOutputArea().setText(res);
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Mã hoá không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void decryptSubstitution(){
@@ -72,12 +73,13 @@ public class SubstitutionController {
             viewSubstitution.getOutputArea().setText(res);
 
         }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){
         viewSubstitution.getInputArea().setText("");
         viewSubstitution.getOutputArea().setText("");
         viewSubstitution.getKeyField().setText("");
+        substitutionCipher.setMappingAlphabet("");
     }
 }

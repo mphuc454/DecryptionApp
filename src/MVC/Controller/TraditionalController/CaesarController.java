@@ -66,7 +66,7 @@ public class CaesarController {
             String result = caesarCipher.encrypt(input, key);
             viewCaesar.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Mã hoá không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void decryptCaesar(){
@@ -76,7 +76,7 @@ public class CaesarController {
             String result = caesarCipher.decrypt(input, key);
             viewCaesar.getOutputArea().setText(result);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Chưa tạo key hoặc key không hợp lệ","Cảnh báo",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){
