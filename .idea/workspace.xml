@@ -8,16 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/AsymmetricCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/OtherModel/AsymmetricCipher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/HashCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/OtherModel/HashCipher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/SymmetricCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/OtherModel/SymmetricCipher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/SubstitutionCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/SubstitutionCipher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="36" />
+    <option name="cachedIndexableFilesCount" value="38" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -136,6 +126,7 @@
       <workItem from="1778680539592" duration="89000" />
       <workItem from="1778683036393" duration="34000" />
       <workItem from="1778685086921" duration="6627000" />
+      <workItem from="1778715827170" duration="1083000" />
     </task>
     <servers />
   </component>

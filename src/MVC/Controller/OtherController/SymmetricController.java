@@ -4,6 +4,7 @@ import MVC.Model.OtherModel.SymmetricCipher;
 import MVC.View.OtherView.ViewSymmetric;
 
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -94,6 +95,8 @@ public class SymmetricController {
         viewSymmetric.getKeyField().setText(key);
     }
     public void saveKey() throws NoSuchAlgorithmException, IOException, NoSuchProviderException {
+        keyInput();
+
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
@@ -114,6 +117,8 @@ public class SymmetricController {
         }
     }
     public void encryptSymmetric(){
+        keyInput();
+
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
@@ -131,6 +136,8 @@ public class SymmetricController {
         }
     }
     public void encryptSymmetricFile(){
+        keyInput();
+
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
@@ -159,6 +166,8 @@ public class SymmetricController {
         }
     }
     public void decryptSymmetric(){
+        keyInput();
+
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
@@ -176,6 +185,7 @@ public class SymmetricController {
         }
     }
     public void decryptSymmetricFile(){
+        keyInput();
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
@@ -201,6 +211,16 @@ public class SymmetricController {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Giải mã file thất bại","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void keyInput(){
+        String keyTxt = viewSymmetric.getKeyField().getText().trim();
+        if (!keyTxt.isEmpty() && symmetricCipher.getKey() == null) {
+            byte[] keyBytes = Base64.getDecoder().decode(keyTxt);
+            String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
+            SecretKey secretKey = new SecretKeySpec(keyBytes, algorithm);
+            symmetricCipher.loadKey(secretKey);
+            symmetricCipher.genIV(algorithm);
         }
     }
 

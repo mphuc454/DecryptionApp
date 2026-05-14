@@ -39,6 +39,8 @@ public class AsymmetricController {
                     JOptionPane.showMessageDialog(null, "Thuật toán không thể hỗ trợ được", "Thất bại", JOptionPane.ERROR_MESSAGE);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Lỗi không thể tải file được", "Thất bại", JOptionPane.ERROR_MESSAGE);
+                } catch (InvalidKeySpecException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });
@@ -51,6 +53,8 @@ public class AsymmetricController {
                     JOptionPane.showMessageDialog(null, "Thuật toán không thể hỗ trợ được", "Thất bại", JOptionPane.ERROR_MESSAGE);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Lỗi không thể tải file được", "Thất bại", JOptionPane.ERROR_MESSAGE);
+                } catch (InvalidKeySpecException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });
@@ -136,7 +140,8 @@ public class AsymmetricController {
         viewAsymmetric.getInputPrivateKey().setText(keyPrivate);
 
     }
-    public void savePubicKey() throws NoSuchAlgorithmException, IOException {
+    public void savePubicKey() throws NoSuchAlgorithmException, IOException, InvalidKeySpecException {
+        publicKeyInput();
         if (asymmetricCipher.getPublicKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo public key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
@@ -156,7 +161,9 @@ public class AsymmetricController {
 
         }
     }
-    public void savePrivateKey() throws NoSuchAlgorithmException, IOException {
+    public void savePrivateKey() throws NoSuchAlgorithmException, IOException, InvalidKeySpecException {
+        privateKeyInput();
+
         if (asymmetricCipher.getPrivateKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo priavte key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
