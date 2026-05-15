@@ -245,6 +245,10 @@ public class AsymmetricController {
         }
         try{
             String input = viewAsymmetric.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể mã hoá", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             String algorithm = viewAsymmetric.getAlgorithmASymmetric().getSelectedItem().toString();
             String mode = viewAsymmetric.getModeASymmetric().getSelectedItem().toString();
             String padding = viewAsymmetric.getPaddingASymmetric().getSelectedItem().toString();
@@ -293,6 +297,10 @@ public class AsymmetricController {
         }
         try{
             String input = viewAsymmetric.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể giải mã", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             String algorithm = viewAsymmetric.getAlgorithmASymmetric().getSelectedItem().toString();
             String mode = viewAsymmetric.getModeASymmetric().getSelectedItem().toString();
             String padding = viewAsymmetric.getPaddingASymmetric().getSelectedItem().toString();

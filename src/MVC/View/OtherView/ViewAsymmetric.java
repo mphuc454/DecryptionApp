@@ -28,25 +28,26 @@ public class ViewAsymmetric extends JPanel {
     public ViewAsymmetric(){
         this.setLayout(new BorderLayout(10,10));
 
-        JPanel topPanel = new JPanel(new BorderLayout(10, 10));
         btnBack = new JButton("QUAY LẠI");
-        topPanel.add(btnBack, BorderLayout.WEST);
-        JPanel optionPanel = new JPanel(new GridLayout(6,2,10,10));
-        JLabel lb1 = new JLabel("Thuật toán đối xứng");
+        this.add(btnBack, BorderLayout.WEST);
+
+        JPanel centerPanel = new JPanel(new BorderLayout(10, 10));
+        JPanel optionPanel = new JPanel(new GridLayout(6, 2, 10, 10));
+        JLabel lb1 = new JLabel("Thuật toán Bất đối xứng");
         optionPanel.add(lb1);
         algorithmASymmetric = new JComboBox<>(new String[]{"RSA"});
         optionPanel.add(algorithmASymmetric);
         JLabel lb2 = new JLabel("Mode");
         optionPanel.add(lb2);
-        modeASymmetric = new JComboBox<>(new String[] {"ECB"});
+        modeASymmetric = new JComboBox<>(new String[]{"ECB"});
         optionPanel.add(modeASymmetric);
         JLabel lb3 = new JLabel("Padding");
         optionPanel.add(lb3);
-        paddingASymmetric = new JComboBox<>(new String[]{"PKCS1Padding","OAEPWithSHA-1AndMGF1Padding","OAEPWithSHA-256AndMGF1Padding"});
+        paddingASymmetric = new JComboBox<>(new String[]{"PKCS1Padding", "OAEPWithSHA-1AndMGF1Padding", "OAEPWithSHA-256AndMGF1Padding"});
         optionPanel.add(paddingASymmetric);
         JLabel lb4 = new JLabel("Key size");
         optionPanel.add(lb4);
-        keySizeASymmetric = new JComboBox<>(new String[]{"1024","2048"});
+        keySizeASymmetric = new JComboBox<>(new String[]{"1024", "2048"});
         optionPanel.add(keySizeASymmetric);
         JLabel lb5 = new JLabel("Nhập khoá công khai: ");
         optionPanel.add(lb5);
@@ -56,60 +57,58 @@ public class ViewAsymmetric extends JPanel {
         optionPanel.add(lb6);
         inputPrivateKey = new JTextField(60);
         optionPanel.add(inputPrivateKey);
-        topPanel.add(optionPanel, BorderLayout.CENTER);
-        JPanel keyPanel = new JPanel();
-        keyPanel.setLayout(new BoxLayout(keyPanel, BoxLayout.Y_AXIS));
-        btnGenKey= new JButton("Tạo key");
-        btnPublicKey = new JButton("Lưu Public Key");
-        btnPrivateKey = new JButton("Lưu Private Key");
-        importPublicKey = new JButton("Import Public Key");
-        importPrivateKey = new JButton("Import Private Key");
-        keyPanel.add(btnGenKey);
-        keyPanel.add(Box.createVerticalStrut(10));
-        keyPanel.add(btnPublicKey);
-        keyPanel.add(Box.createVerticalStrut(10));
-        keyPanel.add(btnPrivateKey);
-        keyPanel.add(Box.createVerticalStrut(10));
-        keyPanel.add(importPublicKey);
-        keyPanel.add(Box.createVerticalStrut(10));
-        keyPanel.add(importPrivateKey);
-        topPanel.add(keyPanel, BorderLayout.EAST);
-        this.add(topPanel, BorderLayout.NORTH);
 
-        JPanel centerPanel = new JPanel();
-        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-        JPanel inputPan = new JPanel(new BorderLayout());
+        JPanel topPanel = new JPanel(new BorderLayout(10, 10));
+        topPanel.add(optionPanel, BorderLayout.CENTER);
+        JPanel keyBtnPanel = new JPanel(new BorderLayout(10, 10));
+        JPanel topBtnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 5));
+        btnGenKey = new JButton("TẠO KEY");
+        topBtnPanel.add(btnGenKey);
+        keyBtnPanel.add(topBtnPanel, BorderLayout.NORTH);
+        JPanel gridBtnPanel = new JPanel(new GridLayout(4, 1, 10, 10));
+        btnPublicKey = new JButton("LƯU PUBLIC KEY");
+        btnPrivateKey = new JButton("LƯU PRIVATE KEY");
+        importPublicKey = new JButton("IMPORT PUBLIC KEY");
+        importPrivateKey = new JButton("IMPORT PRIVATE KEY");
+        gridBtnPanel.add(btnPublicKey);
+        gridBtnPanel.add(btnPrivateKey);
+        gridBtnPanel.add(importPublicKey);
+        gridBtnPanel.add(importPrivateKey);
+        keyBtnPanel.add(gridBtnPanel, BorderLayout.CENTER);
+        topPanel.add(keyBtnPanel, BorderLayout.EAST);
+        centerPanel.add(topPanel, BorderLayout.NORTH);
+
+        JPanel textPanel = new JPanel(new GridLayout(2, 1, 10, 10));
+        JPanel inputPan = new JPanel(new BorderLayout(5, 5));
         JLabel titleInput = new JLabel("Nhập văn bản");
-        txtInput = new JTextArea(5, 20);
+        txtInput = new JTextArea();
         inputPan.add(titleInput, BorderLayout.NORTH);
-        inputPan.add(new JScrollPane(txtInput) , BorderLayout.CENTER);
-        JPanel outputPan = new JPanel(new BorderLayout());
+        inputPan.add(new JScrollPane(txtInput), BorderLayout.CENTER);
+        JPanel outputPan = new JPanel(new BorderLayout(5, 5));
         JLabel titleOutput = new JLabel("Kết quả");
-        txtOutput = new JTextArea(5, 20);
+        txtOutput = new JTextArea();
         txtOutput.setEditable(false);
-        outputPan.add(titleOutput , BorderLayout.NORTH);
+        outputPan.add(titleOutput, BorderLayout.NORTH);
         outputPan.add(new JScrollPane(txtOutput), BorderLayout.CENTER);
-        centerPanel.add(inputPan);
-        centerPanel.add(outputPan);
+        textPanel.add(inputPan);
+        textPanel.add(outputPan);
+        centerPanel.add(textPanel, BorderLayout.CENTER);
+
+        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 5));
+        btnClear = new JButton("XOÁ");
+        btnEncrypt = new JButton("MÃ HOÁ VĂN BẢN");
+        btnDecrypt = new JButton("GIẢI MÃ VĂN BẢN");
+        btnEncryptFile = new JButton("MÃ HOÁ FILE");
+        btnDecryptFile = new JButton("GIẢI MÃ FILE");
+        southPanel.add(btnClear);
+        southPanel.add(btnEncrypt);
+        southPanel.add(btnDecrypt);
+        southPanel.add(btnEncryptFile);
+        southPanel.add(btnDecryptFile);
+        centerPanel.add(southPanel, BorderLayout.SOUTH);
+
         this.add(centerPanel, BorderLayout.CENTER);
 
-        JPanel rightPanel = new JPanel();
-        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        btnEncrypt = new JButton("Mã Hoá Văn bản");
-        btnDecrypt = new JButton("Giải mã Văn bản");
-        btnEncryptFile = new JButton("Mã Hoá file");
-        btnDecryptFile = new JButton("Giải mã file");
-        btnClear = new JButton("Xoá");
-        rightPanel.add(btnEncrypt);
-        rightPanel.add(Box.createVerticalStrut(10));
-        rightPanel.add(btnDecrypt);
-        rightPanel.add(Box.createVerticalStrut(10));
-        rightPanel.add(btnEncryptFile);
-        rightPanel.add(Box.createVerticalStrut(10));
-        rightPanel.add(btnDecryptFile);
-        rightPanel.add(Box.createVerticalStrut(10));
-        rightPanel.add(btnClear);
-        this.add(rightPanel, BorderLayout.EAST);
     }
     public JTextField getInputPrivateKey() {return inputPrivateKey;}
     public JTextField getInputPublicKey() {return inputPublicKey;}

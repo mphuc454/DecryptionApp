@@ -56,4 +56,5 @@ public class ViewHash extends JPanel {
     public JButton getEncryptButton() {return btnEncrypt;}
     public JButton getClearButton() {return btnClear;}
     public JButton getEncryptFileButton() {return btnEncryptFile;}
+    public JComboBox<String> getAlgorithmHash() {return algorithmHash;}
 }

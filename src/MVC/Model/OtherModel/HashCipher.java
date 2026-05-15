@@ -7,8 +7,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashCipher {
-    public String checksum(String input) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("MD5");
+    public String checksum(String input, String algorithm) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance(algorithm);
         byte[]messageDigest = md.digest(input.getBytes());
         BigInteger number = new BigInteger(1, messageDigest);
         return number.toString(16);

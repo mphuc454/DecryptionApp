@@ -1,6 +1,7 @@
 package MVC.View;
 
 import MVC.Controller.OtherController.AsymmetricController;
+import MVC.Controller.OtherController.HashController;
 import MVC.Controller.OtherController.SymmetricController;
 import MVC.Controller.TraditionalController.*;
 import MVC.Model.OtherModel.AsymmetricCipher;
@@ -56,7 +57,7 @@ public class MainView extends JFrame {
 
     public MainView(){
         this.setTitle("App Encryption Basic");
-        this.setSize(850, 600);
+        this.setSize(900, 600);
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         menuContent.setLayout(new BoxLayout(menuContent, BoxLayout.Y_AXIS));
@@ -138,6 +139,7 @@ public class MainView extends JFrame {
 
         panelHash = hashView;
         panel.add(panelHash, "hash");
+        new HashController(hashCipher, hashView, cardLayout, panel);
 
         btnSubstitution.addActionListener(new ActionListener() {
             @Override
