@@ -22,13 +22,16 @@ public class ViewSymmetric extends JPanel {
     private JButton btnGenKey;
     private JButton btnsaveKey;
     private JButton importKey;
+    private JButton btnSaveResult;
 
     public ViewSymmetric(){
         this.setLayout(new BorderLayout(10,10));
 
+        JPanel panel = new JPanel(new GridLayout(3, 1, 0, 10));
         btnBack = new JButton("QUAY LẠI");
-        JPanel panel = new JPanel();
+        btnSaveResult = new JButton("LƯU KẾT QUẢ");
         panel.add(btnBack);
+        panel.add(btnSaveResult);
         this.add(panel, BorderLayout.WEST);
 
         JPanel centerPanel = new JPanel(new BorderLayout(10, 10));
@@ -125,7 +128,9 @@ public class ViewSymmetric extends JPanel {
                 }
             }
         });
-    }public JButton getImportKey() {return importKey;}
+    }
+    public JButton getSaveResult() {return btnSaveResult;}
+    public JButton getImportKey() {return importKey;}
     public JTextField getKeyField() {return inputKey;}
     public JButton getBackButton() {return btnBack;}
     public JButton getGenKey(){return btnGenKey;}
@@ -141,6 +146,4 @@ public class ViewSymmetric extends JPanel {
     public JButton getEncryptFileButton() {return btnEncryptFile;}
     public JButton getDecryptFileButton() {return btnDecryptFile;}
     public JButton getSaveKeyButton() {return btnsaveKey;}
-
-
 }

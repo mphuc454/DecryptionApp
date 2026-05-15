@@ -23,14 +23,17 @@ public class ViewAsymmetric extends JPanel {
     private JButton btnPrivateKey;
     private JButton importPublicKey;
     private JButton importPrivateKey;
+    private JButton btnSaveResult;
 
 
     public ViewAsymmetric(){
         this.setLayout(new BorderLayout(10,10));
 
+        JPanel panel = new JPanel(new GridLayout(3, 1, 0, 10));
         btnBack = new JButton("QUAY LẠI");
-        JPanel panel = new JPanel();
+        btnSaveResult = new JButton("LƯU KẾT QUẢ");
         panel.add(btnBack);
+        panel.add(btnSaveResult);
         this.add(panel, BorderLayout.WEST);
 
         JPanel centerPanel = new JPanel(new BorderLayout(10, 10));
@@ -112,6 +115,7 @@ public class ViewAsymmetric extends JPanel {
         this.add(centerPanel, BorderLayout.CENTER);
 
     }
+    public JButton getSaveResult() {return btnSaveResult;}
     public JTextField getInputPrivateKey() {return inputPrivateKey;}
     public JTextField getInputPublicKey() {return inputPublicKey;}
     public JButton getBackButton() {return btnBack;}
