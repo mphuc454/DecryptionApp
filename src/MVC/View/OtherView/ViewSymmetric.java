@@ -21,6 +21,7 @@ public class ViewSymmetric extends JPanel {
     private JButton btnClear;
     private JButton btnGenKey;
     private JButton btnsaveKey;
+    private JButton importKey;
 
     public ViewSymmetric(){
         this.setLayout(new BorderLayout(10,10));
@@ -54,9 +55,12 @@ public class ViewSymmetric extends JPanel {
         keyPanel.setLayout(new BoxLayout(keyPanel, BoxLayout.Y_AXIS));
         btnGenKey= new JButton("Tạo key");
         btnsaveKey = new JButton("Lưu key");
+        importKey = new JButton("Import Key");
         keyPanel.add(btnGenKey);
         keyPanel.add(Box.createVerticalStrut(10));
         keyPanel.add(btnsaveKey);
+        keyPanel.add(Box.createVerticalStrut(10));
+        keyPanel.add(importKey);
         topPanel.add(keyPanel, BorderLayout.EAST);
         this.add(topPanel, BorderLayout.NORTH);
 
@@ -79,8 +83,8 @@ public class ViewSymmetric extends JPanel {
 
         JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        btnEncrypt = new JButton("Mã Hoá");
-        btnDecrypt = new JButton("Giải mã");
+        btnEncrypt = new JButton("Mã Hoá Văn bản");
+        btnDecrypt = new JButton("Giải mã Văn bản");
         btnEncryptFile = new JButton("Mã Hoá file");
         btnDecryptFile = new JButton("Giải mã file");
         btnClear = new JButton("Xoá");

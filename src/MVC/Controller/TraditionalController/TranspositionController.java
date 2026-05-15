@@ -59,8 +59,16 @@ public class TranspositionController {
     }
 
     public void encryptTransposition(){
+        if(viewTransposition.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewTransposition.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể mã hoá", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int key = Integer.parseInt(viewTransposition.getKeyField().getText());
             String result = transpositionCipher.encrypt(input, key);
             viewTransposition.getOutputArea().setText(result);
@@ -69,8 +77,16 @@ public class TranspositionController {
         }
     }
     public void decryptTransposition(){
+        if(viewTransposition.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewTransposition.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể giải mã", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int key = Integer.parseInt(viewTransposition.getKeyField().getText());
             String result = transpositionCipher.decrypt(input, key);
             viewTransposition.getOutputArea().setText(result);

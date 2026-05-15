@@ -60,8 +60,16 @@ public class CaesarController {
     }
 
     public void encryptCaesar(){
+        if(viewCaesar.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewCaesar.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể mã hoá", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int key = Integer.parseInt(viewCaesar.getKeyField().getText());
             String result = caesarCipher.encrypt(input, key);
             viewCaesar.getOutputArea().setText(result);
@@ -70,8 +78,16 @@ public class CaesarController {
         }
     }
     public void decryptCaesar(){
+        if(viewCaesar.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewCaesar.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể giải mã", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int key = Integer.parseInt(viewCaesar.getKeyField().getText());
             String result = caesarCipher.decrypt(input, key);
             viewCaesar.getOutputArea().setText(result);

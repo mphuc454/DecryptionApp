@@ -80,8 +80,17 @@ public class HillController {
     }
 
     public void encryptHill(){
+        if(viewHill.getKeyFieldA().getText().isEmpty() || viewHill.getKeyFieldB().getText().isEmpty() ||
+                viewHill.getKeyFieldC().getText().isEmpty() || viewHill.getKeyFieldD().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewHill.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể mã hoá", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int keyA = Integer.parseInt(viewHill.getKeyFieldA().getText());
             int keyB = Integer.parseInt(viewHill.getKeyFieldB().getText());
             int keyC = Integer.parseInt(viewHill.getKeyFieldC().getText());
@@ -94,8 +103,17 @@ public class HillController {
         }
     }
     public void decryptHill(){
+        if(viewHill.getKeyFieldA().getText().isEmpty() || viewHill.getKeyFieldB().getText().isEmpty() ||
+                viewHill.getKeyFieldC().getText().isEmpty() || viewHill.getKeyFieldD().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewHill.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể giải mã", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int keyA = Integer.parseInt(viewHill.getKeyFieldA().getText());
             int keyB = Integer.parseInt(viewHill.getKeyFieldB().getText());
             int keyC = Integer.parseInt(viewHill.getKeyFieldC().getText());

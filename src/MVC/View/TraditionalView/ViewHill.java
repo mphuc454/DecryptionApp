@@ -55,8 +55,8 @@ public class ViewHill extends JPanel {
 
         JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        btnEncrypt = new JButton("Mã Hoá");
-        btnDecrypt = new JButton("Giải Mã");
+        btnEncrypt = new JButton("Mã Hoá Văn bản");
+        btnDecrypt = new JButton("Giải Mã Văn bản");
         btnClear = new JButton("Xoá");
         rightPanel.add(btnEncrypt);
         rightPanel.add(Box.createVerticalStrut(10));

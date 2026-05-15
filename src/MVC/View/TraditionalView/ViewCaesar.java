@@ -48,8 +48,8 @@ public class ViewCaesar extends JPanel {
 
         JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        btnEncrypt = new JButton("Mã Hoá");
-        btnDecrypt = new JButton("Giải mã");
+        btnEncrypt = new JButton("Mã Hoá Văn bản");
+        btnDecrypt = new JButton("Giải mã Văn bản");
         btnClear = new JButton("Xoá");
         rightPanel.add(btnEncrypt);
         rightPanel.add(Box.createVerticalStrut(10));

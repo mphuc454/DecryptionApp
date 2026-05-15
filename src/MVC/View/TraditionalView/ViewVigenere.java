@@ -11,6 +11,7 @@ public class ViewVigenere extends JPanel {
     private JButton btnEncrypt;
     private JButton btnDecrypt;
     private JButton btnClear;
+    private JButton btnGenKey;
 
     public ViewVigenere(){
         this.setLayout(new BorderLayout(10, 10));
@@ -19,11 +20,13 @@ public class ViewVigenere extends JPanel {
         btnBack = new JButton("QUAY LẠI");
         topPanel.add(btnBack, BorderLayout.WEST);
         JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-        JLabel lb = new JLabel("Nhập khoá (Chữ): ");
+        JLabel lb = new JLabel("Nhập khoá: ");
         keyPanel.add(lb);
         txtKey = new JTextField(60);
         keyPanel.add(txtKey);
         topPanel.add(keyPanel, BorderLayout.CENTER);
+        btnGenKey = new JButton("TẠO KEY");
+        topPanel.add(btnGenKey, BorderLayout.EAST);
         this.add(topPanel, BorderLayout.NORTH);
 
         JPanel centerPanel = new JPanel();
@@ -45,8 +48,8 @@ public class ViewVigenere extends JPanel {
 
         JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        btnEncrypt = new JButton("Mã hoá");
-        btnDecrypt = new JButton("Giải mã");
+        btnEncrypt = new JButton("Mã hoá Văn bản");
+        btnDecrypt = new JButton("Giải mã Văn bản");
         btnClear = new JButton("Xoá");
         rightPanel.add(btnEncrypt);
         rightPanel.add(Box.createVerticalStrut(10));
@@ -54,6 +57,9 @@ public class ViewVigenere extends JPanel {
         rightPanel.add(Box.createVerticalStrut(10));
         rightPanel.add(btnClear);
         this.add(rightPanel, BorderLayout.EAST);
+    }
+    public JButton getGenKey(){
+        return btnGenKey;
     }
     public JButton getBackButton() {
         return btnBack;

@@ -61,8 +61,16 @@ public class AffineController {
     }
 
     public void encryptAffine(){
+        if(viewAffine.getKeyFieldA().getText().isEmpty() || viewAffine.getKeyFieldB().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewAffine.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể mã hoá", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int keyA = Integer.parseInt(viewAffine.getKeyFieldA().getText());
             int keyB = Integer.parseInt(viewAffine.getKeyFieldB().getText());
             String result = affineCipher.encrypt(input, keyA, keyB);
@@ -72,8 +80,16 @@ public class AffineController {
         }
     }
     public void decryptAffine(){
+        if(viewAffine.getKeyFieldA().getText().isEmpty() || viewAffine.getKeyFieldB().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try {
             String input = viewAffine.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể giải mã", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int keyA = Integer.parseInt(viewAffine.getKeyFieldA().getText());
             int keyB = Integer.parseInt(viewAffine.getKeyFieldB().getText());
             String result = affineCipher.decrypt(input, keyA, keyB);

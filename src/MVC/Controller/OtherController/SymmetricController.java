@@ -118,13 +118,16 @@ public class SymmetricController {
     }
     public void encryptSymmetric(){
         keyInput();
-
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
         try {
             String input = viewSymmetric.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể mã hoá", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
             String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
             String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();
@@ -172,8 +175,13 @@ public class SymmetricController {
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
         try {
             String input = viewSymmetric.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể giải mã", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
             String mode = viewSymmetric.getModeSymmetric().getSelectedItem().toString();
             String padding = viewSymmetric.getPaddingSymmetric().getSelectedItem().toString();

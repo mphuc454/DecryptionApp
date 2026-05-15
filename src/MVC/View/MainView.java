@@ -4,8 +4,10 @@ import MVC.Controller.OtherController.AsymmetricController;
 import MVC.Controller.OtherController.SymmetricController;
 import MVC.Controller.TraditionalController.*;
 import MVC.Model.OtherModel.AsymmetricCipher;
+import MVC.Model.OtherModel.HashCipher;
 import MVC.Model.OtherModel.SymmetricCipher;
 import MVC.Model.TraditionalModel.*;
+import MVC.View.OtherView.HashView;
 import MVC.View.OtherView.ViewAsymmetric;
 import MVC.View.OtherView.ViewSymmetric;
 import MVC.View.TraditionalView.*;
@@ -49,6 +51,8 @@ public class MainView extends JFrame {
     SymmetricCipher symmetricCipher = new SymmetricCipher();
     ViewAsymmetric viewAsymmetric = new ViewAsymmetric();
     AsymmetricCipher asymmetricCipher = new AsymmetricCipher();
+    HashView hashView = new HashView();
+    HashCipher hashCipher = new HashCipher();
 
     public MainView(){
         this.setTitle("App Encryption Basic");
@@ -132,6 +136,8 @@ public class MainView extends JFrame {
         panel.add(panelAsymmetric, "asymmetric");
         new AsymmetricController(asymmetricCipher, viewAsymmetric, cardLayout, panel);
 
+        panelHash = hashView;
+        panel.add(panelHash, "hash");
 
         btnSubstitution.addActionListener(new ActionListener() {
             @Override
@@ -179,6 +185,11 @@ public class MainView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(panel,"asymmetric");
+            }
+        });
+        btnHash.addActionListener(new ActionListener() { @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(panel,"hash");
             }
         });
 

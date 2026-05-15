@@ -58,8 +58,16 @@ public class SubstitutionController {
     }
 
     public void encryptSubstitution(){
+        if(viewSubstitution.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try{
             String input = viewSubstitution.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể mã hoá", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             String res = substitutionCipher.encrypt(input);
             viewSubstitution.getOutputArea().setText(res);
         }catch (Exception e){
@@ -67,8 +75,16 @@ public class SubstitutionController {
         }
     }
     public void decryptSubstitution(){
+        if(viewSubstitution.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         try{
             String input = viewSubstitution.getInputArea().getText();
+            if(input == null || input.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Văn bản rỗng, không thể giải mã", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             String res = substitutionCipher.decrypt(input);
             viewSubstitution.getOutputArea().setText(res);
 

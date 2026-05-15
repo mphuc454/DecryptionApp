@@ -21,6 +21,9 @@ public class ViewAsymmetric extends JPanel {
     private JButton btnGenKey;
     private JButton btnPublicKey;
     private JButton btnPrivateKey;
+    private JButton importPublicKey;
+    private JButton importPrivateKey;
+
 
     public ViewAsymmetric(){
         this.setLayout(new BorderLayout(10,10));
@@ -59,11 +62,17 @@ public class ViewAsymmetric extends JPanel {
         btnGenKey= new JButton("Tạo key");
         btnPublicKey = new JButton("Lưu Public Key");
         btnPrivateKey = new JButton("Lưu Private Key");
+        importPublicKey = new JButton("Import Public Key");
+        importPrivateKey = new JButton("Import Private Key");
         keyPanel.add(btnGenKey);
         keyPanel.add(Box.createVerticalStrut(10));
         keyPanel.add(btnPublicKey);
         keyPanel.add(Box.createVerticalStrut(10));
         keyPanel.add(btnPrivateKey);
+        keyPanel.add(Box.createVerticalStrut(10));
+        keyPanel.add(importPublicKey);
+        keyPanel.add(Box.createVerticalStrut(10));
+        keyPanel.add(importPrivateKey);
         topPanel.add(keyPanel, BorderLayout.EAST);
         this.add(topPanel, BorderLayout.NORTH);
 
@@ -86,8 +95,8 @@ public class ViewAsymmetric extends JPanel {
 
         JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        btnEncrypt = new JButton("Mã Hoá");
-        btnDecrypt = new JButton("Giải mã");
+        btnEncrypt = new JButton("Mã Hoá Văn bản");
+        btnDecrypt = new JButton("Giải mã Văn bản");
         btnEncryptFile = new JButton("Mã Hoá file");
         btnDecryptFile = new JButton("Giải mã file");
         btnClear = new JButton("Xoá");
