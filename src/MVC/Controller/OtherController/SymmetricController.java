@@ -13,6 +13,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.util.Base64;
@@ -63,6 +64,12 @@ public class SymmetricController {
                 cardLayout.show(panel, "menu");
             }
         });
+        viewSymmetric.getImportKey().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                importKey();
+            }
+        });
         viewSymmetric.getEncryptFileButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -93,6 +100,20 @@ public class SymmetricController {
         String key = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         symmetricCipher.genIV(algorithm);
         viewSymmetric.getKeyField().setText(key);
+    }
+    public void importKey(){
+        JFileChooser jFileChooser = new JFileChooser();
+        int res = jFileChooser.showOpenDialog(null);
+        if (res == JFileChooser.APPROVE_OPTION){
+            File file = jFileChooser.getSelectedFile();
+            try{
+                byte[] data = Files.readAllBytes(file.toPath());
+                String content = new String(data).trim();
+                viewSymmetric.getKeyField().setText(content);
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Lỗi không đọc file được", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
     public void saveKey() throws NoSuchAlgorithmException, IOException, NoSuchProviderException {
         keyInput();

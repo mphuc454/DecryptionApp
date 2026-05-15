@@ -54,12 +54,18 @@ public class AffineController {
     }
 
     public void genKey() {
-        int n = new Random().nextInt(26);
-        int m = new Random().nextInt(26);
-        viewAffine.getKeyFieldA().setText(String.valueOf(n));
-        viewAffine.getKeyFieldB().setText(String.valueOf(m));
+        int a = 0;
+        while(gcd(a, 26) != 1){
+            a = new Random().nextInt(26);
+        }
+        int b = new Random().nextInt(26);
+        viewAffine.getKeyFieldA().setText(String.valueOf(a));
+        viewAffine.getKeyFieldB().setText(String.valueOf(b));
     }
-
+    private int gcd(int a, int b) {
+        if(b == 0) return a;
+        return gcd(b, a % b);
+    }
     public void encryptAffine(){
         if(viewAffine.getKeyFieldA().getText().isEmpty() || viewAffine.getKeyFieldB().getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);

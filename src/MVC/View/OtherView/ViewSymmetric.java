@@ -32,7 +32,7 @@ public class ViewSymmetric extends JPanel {
         JPanel optionPanel = new JPanel(new GridLayout(5,2,10,10));
         JLabel lb1 = new JLabel("Thuật toán đối xứng");
         optionPanel.add(lb1);
-        algorithmSymmetric = new JComboBox<>(new String[]{"AES","DES","Camellia","Serpent","RC6","Twofish","CAST5"});
+        algorithmSymmetric = new JComboBox<>(new String[]{"AES","DES","Camellia","Serpent","RC6","Twofish"});
         optionPanel.add(algorithmSymmetric);
         JLabel lb2 = new JLabel("Mode");
         optionPanel.add(lb2);
@@ -111,9 +111,7 @@ public class ViewSymmetric extends JPanel {
                     modeSymmetric.addItem("ECB");
                     modeSymmetric.addItem("CFB");
                     modeSymmetric.addItem("OFB");
-                }else if(nameAlgorithm.equals("CAST5")){
-                    keySizeSymmetric.addItem("128");
-                    modeSymmetric.addItem("ECB");
+                    modeSymmetric.addItem("CTR");
                 }else{
                     keySizeSymmetric.addItem("128");
                     keySizeSymmetric.addItem("192");
@@ -126,7 +124,7 @@ public class ViewSymmetric extends JPanel {
                 }
             }
         });
-    }
+    }public JButton getImportKey() {return importKey;}
     public JTextField getKeyField() {return inputKey;}
     public JButton getBackButton() {return btnBack;}
     public JButton getGenKey(){return btnGenKey;}

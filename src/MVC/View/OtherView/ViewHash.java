@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class HashView extends JPanel {
+public class ViewHash extends JPanel {
     private JButton btnBack;
     private JComboBox<String>algorithmHash;
     private JTextArea txtInput;
@@ -13,7 +13,7 @@ public class HashView extends JPanel {
     private JButton btnEncryptFile;
     private JButton btnClear;
 
-    public HashView(){
+    public ViewHash(){
         this.setLayout(new BorderLayout(10,10));
 
         JPanel topPanel = new JPanel(new BorderLayout(10, 10));

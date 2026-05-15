@@ -11,8 +11,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
@@ -129,6 +132,18 @@ public class AsymmetricController {
                 }
             }
         });
+        viewAsymmetric.getImportPublicKey().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                importPublicKey();
+            }
+        });
+        viewAsymmetric.getImportPrivateKey().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                importPrivateKey();
+            }
+        });
     }
     public void genKey() throws NoSuchAlgorithmException {
         String algorithm = viewAsymmetric.getAlgorithmASymmetric().getSelectedItem().toString();
@@ -139,6 +154,44 @@ public class AsymmetricController {
         viewAsymmetric.getInputPublicKey().setText(keyPublic);
         viewAsymmetric.getInputPrivateKey().setText(keyPrivate);
 
+    }
+    public void importPublicKey(){
+        JFileChooser jFileChooser = new JFileChooser();
+        int res = jFileChooser.showOpenDialog(null);
+        if (res == JFileChooser.APPROVE_OPTION){
+            File file = jFileChooser.getSelectedFile();
+            try{
+                String algorithm = viewAsymmetric.getAlgorithmASymmetric().getSelectedItem().toString();
+                String data = Files.readString(file.toPath()).trim();
+                byte[] keyBytes = Base64.getDecoder().decode(data);
+                X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
+                KeyFactory keyFactory = KeyFactory.getInstance(algorithm);
+                PublicKey publicKey = keyFactory.generatePublic(spec);
+                asymmetricCipher.setPublicKey(publicKey);
+                viewAsymmetric.getInputPublicKey().setText(data);
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Lỗi không đọc file được", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    public void importPrivateKey(){
+        JFileChooser jFileChooser = new JFileChooser();
+        int res = jFileChooser.showOpenDialog(null);
+        if (res == JFileChooser.APPROVE_OPTION){
+            File file = jFileChooser.getSelectedFile();
+            try{
+                String algorithm = viewAsymmetric.getAlgorithmASymmetric().getSelectedItem().toString();
+                String data = Files.readString(file.toPath()).trim();
+                byte[] keyBytes = Base64.getDecoder().decode(data);
+                PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(keyBytes);
+                KeyFactory keyFactory = KeyFactory.getInstance(algorithm);
+                PrivateKey privateKey = keyFactory.generatePrivate(spec);
+                asymmetricCipher.setPrivateKey(privateKey);
+                viewAsymmetric.getInputPrivateKey().setText(data);
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Lỗi không đọc file được", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
     public void savePubicKey() throws NoSuchAlgorithmException, IOException, InvalidKeySpecException {
         publicKeyInput();

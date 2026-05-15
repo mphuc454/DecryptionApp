@@ -6,23 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="74525df1-d2e6-4b35-bb50-475610d814ce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/View/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/HashView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/HashView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/HashView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewHash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewAsymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewAsymmetric.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewSymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewSymmetric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +133,11 @@
       <workItem from="1778685086921" duration="6627000" />
       <workItem from="1778715827170" duration="1083000" />
       <workItem from="1778811957395" duration="4757000" />
+      <workItem from="1778824631651" duration="40000" />
+      <workItem from="1778827115342" duration="641000" />
+      <workItem from="1778828072988" duration="755000" />
+      <workItem from="1778829349190" duration="1000" />
+      <workItem from="1778837937437" duration="3265000" />
     </task>
     <servers />
   </component>

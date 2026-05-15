@@ -130,4 +130,6 @@ public class ViewAsymmetric extends JPanel {
     public JButton getDecryptFileButton() {return btnDecryptFile;}
     public JButton getSavePK() {return btnPublicKey;}
     public JButton getSavePrivateK() {return btnPrivateKey;}
+    public JButton getImportPublicKey() {return importPublicKey;}
+    public JButton getImportPrivateKey() {return importPrivateKey;}
 }

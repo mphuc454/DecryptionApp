@@ -7,7 +7,7 @@ import MVC.Model.OtherModel.AsymmetricCipher;
 import MVC.Model.OtherModel.HashCipher;
 import MVC.Model.OtherModel.SymmetricCipher;
 import MVC.Model.TraditionalModel.*;
-import MVC.View.OtherView.HashView;
+import MVC.View.OtherView.ViewHash;
 import MVC.View.OtherView.ViewAsymmetric;
 import MVC.View.OtherView.ViewSymmetric;
 import MVC.View.TraditionalView.*;
@@ -51,7 +51,7 @@ public class MainView extends JFrame {
     SymmetricCipher symmetricCipher = new SymmetricCipher();
     ViewAsymmetric viewAsymmetric = new ViewAsymmetric();
     AsymmetricCipher asymmetricCipher = new AsymmetricCipher();
-    HashView hashView = new HashView();
+    ViewHash hashView = new ViewHash();
     HashCipher hashCipher = new HashCipher();
 
     public MainView(){
