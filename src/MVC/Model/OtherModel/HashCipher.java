@@ -13,8 +13,8 @@ public class HashCipher {
         BigInteger number = new BigInteger(1, messageDigest);
         return number.toString(16);
     }
-    public String hash(String file) throws NoSuchAlgorithmException, IOException {
-        MessageDigest digest = MessageDigest.getInstance("MD5");
+    public String hash(String file,String algorithm ) throws NoSuchAlgorithmException, IOException {
+        MessageDigest digest = MessageDigest.getInstance(algorithm);
         InputStream is = new BufferedInputStream(new FileInputStream(file));
         DigestInputStream dis = new DigestInputStream(is,digest);
         byte[] buffer = new byte[1024];

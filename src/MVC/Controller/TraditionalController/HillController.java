@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class HillController {
@@ -48,6 +52,16 @@ public class HillController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(panel, "menu");
+            }
+        });
+        viewHill.getSaveKey().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveKey();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -123,6 +137,27 @@ public class HillController {
             viewHill.getOutputArea().setText(result);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void saveKey() throws IOException {
+        if(viewHill.getKeyFieldA().getText().isEmpty() || viewHill.getKeyFieldB().getText().isEmpty() ||
+                viewHill.getKeyFieldC().getText().isEmpty() || viewHill.getKeyFieldD().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("save_key.txt"));
+        int choose = fileChooser.showSaveDialog(viewHill);
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String keyData = viewHill.getKeyFieldA().getText().trim() + " " + viewHill.getKeyFieldB().getText().trim() + " " + viewHill.getKeyFieldC().getText().trim() + " "
+                            + viewHill.getKeyFieldD().getText().trim();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyData);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file key thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){

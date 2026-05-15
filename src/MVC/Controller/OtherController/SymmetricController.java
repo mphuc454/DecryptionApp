@@ -161,7 +161,6 @@ public class SymmetricController {
     }
     public void encryptSymmetricFile(){
         keyInput();
-
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
@@ -191,7 +190,6 @@ public class SymmetricController {
     }
     public void decryptSymmetric(){
         keyInput();
-
         if(symmetricCipher.getKey() == null){
             JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;

@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class AffineController {
@@ -49,6 +53,16 @@ public class AffineController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(panel, "menu");
+            }
+        });
+        viewAffine.getSaveKey().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveKey();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
@@ -102,6 +116,25 @@ public class AffineController {
             viewAffine.getOutputArea().setText(result);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void saveKey() throws IOException {
+        if(viewAffine.getKeyFieldA().getText().isEmpty() || viewAffine.getKeyFieldB().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("save_key.txt"));
+        int choose = fileChooser.showSaveDialog(viewAffine);
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String keyData = viewAffine.getKeyFieldA().getText().trim() + " " + viewAffine.getKeyFieldB().getText().trim();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyData);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file key thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){

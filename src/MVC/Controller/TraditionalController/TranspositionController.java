@@ -8,6 +8,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class TranspositionController {
@@ -52,6 +56,16 @@ public class TranspositionController {
                 cardLayout.show(panel, "menu");
             }
         });
+        viewTransposition.getSaveKey().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveKey();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
     public void genKey() {
         int n = new Random().nextInt(26);
@@ -92,6 +106,25 @@ public class TranspositionController {
             viewTransposition.getOutputArea().setText(result);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void saveKey() throws IOException {
+        if(viewTransposition.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("save_key.txt"));
+        int choose = fileChooser.showSaveDialog(viewTransposition);
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String keyTxt = viewTransposition.getKeyField().getText();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyTxt);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file key thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){

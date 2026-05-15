@@ -16,6 +16,7 @@ public class ViewHill extends JPanel {
     private JButton btnClear;
     private JButton btnGenKey;
     private JButton btnSaveKey;
+    private JButton btnSaveResult;
 
 
     public ViewHill(){
@@ -37,8 +38,12 @@ public class ViewHill extends JPanel {
         centerPanel.add(outputPan);
 
         JPanel topWrapper = new JPanel(new BorderLayout(10, 10));
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         btnBack = new JButton("QUAY LẠI");
-        topWrapper.add(btnBack, BorderLayout.WEST);
+        btnSaveResult = new JButton("LƯU KẾT QUẢ");
+        panel.add(btnBack);
+        panel.add(btnSaveResult);
+        topWrapper.add(panel, BorderLayout.WEST);
         topWrapper.add(centerPanel, BorderLayout.CENTER);
         this.add(topWrapper, BorderLayout.CENTER);
 
@@ -63,6 +68,7 @@ public class ViewHill extends JPanel {
         southPanel.add(btnSaveKey);
         this.add(southPanel, BorderLayout.SOUTH);
     }
+    public JButton getSaveKey() {return btnSaveKey;}
     public JButton getBackButton() {
         return btnBack;
     }

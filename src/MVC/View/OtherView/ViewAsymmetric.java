@@ -29,7 +29,9 @@ public class ViewAsymmetric extends JPanel {
         this.setLayout(new BorderLayout(10,10));
 
         btnBack = new JButton("QUAY LẠI");
-        this.add(btnBack, BorderLayout.WEST);
+        JPanel panel = new JPanel();
+        panel.add(btnBack);
+        this.add(panel, BorderLayout.WEST);
 
         JPanel centerPanel = new JPanel(new BorderLayout(10, 10));
         JPanel optionPanel = new JPanel(new GridLayout(6, 2, 10, 10));

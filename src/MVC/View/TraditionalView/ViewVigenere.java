@@ -32,11 +32,12 @@ public class ViewVigenere extends JPanel {
         centerPanel.add(outputPan);
 
         JPanel topWrapper = new JPanel(new BorderLayout(10, 10));
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         btnBack = new JButton("QUAY LẠI");
-        topWrapper.add(btnBack, BorderLayout.WEST);
+        panel.add(btnBack);
+        topWrapper.add(panel, BorderLayout.WEST);
         topWrapper.add(centerPanel, BorderLayout.CENTER);
         this.add(topWrapper, BorderLayout.CENTER);
-
         JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 5));
         txtKey = new JTextField(30);
         btnGenKey = new JButton("TẠO KEY");
@@ -53,6 +54,7 @@ public class ViewVigenere extends JPanel {
         this.add(southPanel, BorderLayout.SOUTH);
 
     }
+    public JButton getSaveKey() {return btnSaveKey;}
     public JButton getGenKey(){
         return btnGenKey;
     }

@@ -7,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class SubstitutionController {
     private SubstitutionCipher substitutionCipher;
@@ -50,6 +54,16 @@ public class SubstitutionController {
                 genKey();
             }
         });
+        viewSubstitution.getSaveKey().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveKey();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
     public void genKey() {
         String res = substitutionCipher.randomMappingAlphabet();
@@ -90,6 +104,25 @@ public class SubstitutionController {
 
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Giải mã không thành công","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void saveKey() throws IOException {
+        if(viewSubstitution.getKeyField().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Chưa tạo key", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("save_key.txt"));
+        int choose = fileChooser.showSaveDialog(viewSubstitution);
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String keyTxt = viewSubstitution.getKeyField().getText();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyTxt);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file key thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file key thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){
