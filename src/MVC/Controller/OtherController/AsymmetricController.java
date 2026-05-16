@@ -144,6 +144,17 @@ public class AsymmetricController {
                 importPrivateKey();
             }
         });
+        viewAsymmetric.getSaveResult().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveResult();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
     public void genKey() throws NoSuchAlgorithmException {
         String algorithm = viewAsymmetric.getAlgorithmASymmetric().getSelectedItem().toString();
@@ -361,6 +372,25 @@ public void privateKeyInput() throws NoSuchAlgorithmException, InvalidKeySpecExc
         asymmetricCipher.setPrivateKey(keyFactory.generatePrivate(spec));
     }
 }
+    public void saveResult() throws IOException {
+        if(viewAsymmetric.getOutputArea().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Văn bản rỗng chưa có kết quả", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("result.txt"));
+        int choose = fileChooser.showSaveDialog(viewAsymmetric);
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String keyTxt = viewAsymmetric.getOutputArea().getText();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyTxt);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     public void Clear(){
         viewAsymmetric.getInputPublicKey().setText("");

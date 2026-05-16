@@ -92,6 +92,17 @@ public class SymmetricController {
                 }
             }
         });
+        viewSymmetric.getSaveResult().addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveResult();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
     public void genKey() throws NoSuchAlgorithmException, NoSuchProviderException {
         String algorithm = viewSymmetric.getAlgorithmSymmetric().getSelectedItem().toString();
@@ -248,6 +259,25 @@ public class SymmetricController {
             SecretKey secretKey = new SecretKeySpec(keyBytes, algorithm);
             symmetricCipher.loadKey(secretKey);
             symmetricCipher.genIV(algorithm);
+        }
+    }
+    public void saveResult() throws IOException {
+        if(viewSymmetric.getOutputArea().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Văn bản rỗng chưa có kết quả", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("result.txt"));
+        int choose = fileChooser.showSaveDialog(viewSymmetric);
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String keyTxt = viewSymmetric.getOutputArea().getText();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyTxt);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
         }
     }
 

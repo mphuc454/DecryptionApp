@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
@@ -48,6 +49,16 @@ public class HashController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 hashFile();
+            }
+        });
+        viewHash.getSaveResult().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    saveResult();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
@@ -89,6 +100,25 @@ public class HashController {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Băm file thất bại","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void saveResult() throws IOException {
+        if(viewHash.getOutputArea().getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Văn bản rỗng chưa có kết quả", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setSelectedFile(new File("result.txt"));
+        int choose = fileChooser.showSaveDialog(viewHash);
+        if (choose == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            String keyTxt = viewHash.getOutputArea().getText();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(keyTxt);
+            writer.close();
+            JOptionPane.showMessageDialog(null, "Lưu file thành công", "Thành công", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Lưu file thất bại", "Thất bại", JOptionPane.ERROR_MESSAGE);
         }
     }
     public void Clear(){

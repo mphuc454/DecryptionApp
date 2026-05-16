@@ -29,11 +29,16 @@ public class ViewAsymmetric extends JPanel {
     public ViewAsymmetric(){
         this.setLayout(new BorderLayout(10,10));
 
-        JPanel panel = new JPanel(new GridLayout(3, 1, 0, 10));
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         btnBack = new JButton("QUAY LẠI");
         btnSaveResult = new JButton("LƯU KẾT QUẢ");
+        btnClear = new JButton("XOÁ");
         panel.add(btnBack);
+        panel.add(Box.createVerticalStrut(10));
         panel.add(btnSaveResult);
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(btnClear);
         this.add(panel, BorderLayout.WEST);
 
         JPanel centerPanel = new JPanel(new BorderLayout(10, 10));
@@ -100,12 +105,10 @@ public class ViewAsymmetric extends JPanel {
         centerPanel.add(textPanel, BorderLayout.CENTER);
 
         JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 5));
-        btnClear = new JButton("XOÁ");
         btnEncrypt = new JButton("MÃ HOÁ VĂN BẢN");
         btnDecrypt = new JButton("GIẢI MÃ VĂN BẢN");
         btnEncryptFile = new JButton("MÃ HOÁ FILE");
         btnDecryptFile = new JButton("GIẢI MÃ FILE");
-        southPanel.add(btnClear);
         southPanel.add(btnEncrypt);
         southPanel.add(btnDecrypt);
         southPanel.add(btnEncryptFile);

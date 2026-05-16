@@ -34,11 +34,17 @@ public class ViewSubstitution extends JPanel {
         centerPanel.add(outputPan);
 
         JPanel topWrapper = new JPanel(new BorderLayout(10, 10));
-        JPanel panel = new JPanel(new GridLayout(3, 1, 0, 10));
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         btnBack = new JButton("QUAY LẠI");
         btnSaveResult = new JButton("LƯU KẾT QUẢ");
+        btnClear = new JButton("XOÁ");
         panel.add(btnBack);
+        panel.add(Box.createVerticalStrut(10));
         panel.add(btnSaveResult);
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(btnClear);
+        this.add(panel, BorderLayout.WEST);
         topWrapper.add(panel, BorderLayout.WEST);
         topWrapper.add(centerPanel, BorderLayout.CENTER);
         this.add(topWrapper, BorderLayout.CENTER);
@@ -48,13 +54,11 @@ public class ViewSubstitution extends JPanel {
         btnGenKey = new JButton("TẠO KEY");
         btnEncrypt = new JButton("MÃ HOÁ VĂN BẢN");
         btnDecrypt = new JButton("GIẢI MÃ VĂN BẢN");
-        btnClear = new JButton("XOÁ");
         btnSaveKey = new JButton("LƯU KEY");
         southPanel.add(txtKey);
         southPanel.add(btnGenKey);
         southPanel.add(btnEncrypt);
         southPanel.add(btnDecrypt);
-        southPanel.add(btnClear);
         southPanel.add(btnSaveKey);
         this.add(southPanel, BorderLayout.SOUTH);
 
