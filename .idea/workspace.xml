@@ -4,26 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74525df1-d2e6-4b35-bb50-475610d814ce" name="Changes" comment="">
+    <list default="true" id="6df95087-1524-477a-925b-3620fbd059b5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/JavaEncryptionApp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bcprov_jdk18on_1_84.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/HashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/HashController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewAsymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewAsymmetric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewSymmetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewSymmetric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDemo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaEncryptionApp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bcprov-jdk18on-1.84.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/HashController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/AsymmetricCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/HashCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/SymmetricCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/AffineCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/CaesarCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/HillCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/SubstitutionCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/TranspositionCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/VigenereCipher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/Display.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/MainView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewAsymmetric.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewHash.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewSymmetric.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +53,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="38" />
+    <option name="cachedIndexableFilesCount" value="35" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,63 +63,34 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="3DRvRy6Ra7y8ku6s5nrl76yb7XV" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3DoKOcK6nnvLYbn3w8KhOBU8VRu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AsymmetricCipher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Display.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Exam.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HillCipher.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.MainView.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MyApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MyView.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SubstitutionCipher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SymmetricCipher.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ViewHill.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MyFolder/MySkills/ProgrammingLanguage/JavaProject/JavaEncryptionApp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Display.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/MyFolder/MySkills/ProgrammingLanguage/JavaProject/JavaEncryptionApp",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecapSpentCounter">
-    <option name="endsOfQuotaMs" value="1779285686586" />
-    <option name="spentUsd" value="0.24771476" />
-  </component>
-  <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="0" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\MyFolder\MySkills\ProgrammingLanguage\JavaProject\JavaEncryptionApp\lib" />
-    </key>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -115,44 +101,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="74525df1-d2e6-4b35-bb50-475610d814ce" name="Changes" comment="" />
-      <created>1778257693630</created>
+      <changelist id="6df95087-1524-477a-925b-3620fbd059b5" name="Changes" comment="" />
+      <created>1778942951357</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1778257693630</updated>
-      <workItem from="1778257696822" duration="361000" />
-      <workItem from="1778258318201" duration="155000" />
-      <workItem from="1778321645102" duration="2213000" />
-      <workItem from="1778331662024" duration="586000" />
-      <workItem from="1778333346502" duration="896000" />
-      <workItem from="1778337035652" duration="7011000" />
-      <workItem from="1778379110032" duration="8764000" />
-      <workItem from="1778390435906" duration="136000" />
-      <workItem from="1778398856633" duration="10294000" />
-      <workItem from="1778410024272" duration="192000" />
-      <workItem from="1778415880570" duration="11173000" />
-      <workItem from="1778428069500" duration="489000" />
-      <workItem from="1778428607993" duration="526000" />
-      <workItem from="1778465501517" duration="4836000" />
-      <workItem from="1778507839040" duration="7580000" />
-      <workItem from="1778593992994" duration="42000" />
-      <workItem from="1778677724671" duration="461000" />
-      <workItem from="1778679085637" duration="15000" />
-      <workItem from="1778680345786" duration="12000" />
-      <workItem from="1778680539592" duration="89000" />
-      <workItem from="1778683036393" duration="34000" />
-      <workItem from="1778685086921" duration="6627000" />
-      <workItem from="1778715827170" duration="1083000" />
-      <workItem from="1778811957395" duration="4757000" />
-      <workItem from="1778824631651" duration="40000" />
-      <workItem from="1778827115342" duration="641000" />
-      <workItem from="1778828072988" duration="755000" />
-      <workItem from="1778829349190" duration="1000" />
-      <workItem from="1778837937437" duration="3265000" />
-      <workItem from="1778851419118" duration="5516000" />
-      <workItem from="1778858697932" duration="4494000" />
-      <workItem from="1778863281355" duration="1081000" />
-      <workItem from="1778898190798" duration="3933000" />
+      <updated>1778942951357</updated>
+      <workItem from="1778942952520" duration="51000" />
     </task>
     <servers />
   </component>
