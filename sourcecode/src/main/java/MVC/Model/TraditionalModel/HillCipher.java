@@ -96,6 +96,9 @@ public class HillCipher {
                 result.append(c);
             }
         }
+        if (result.length() > 0 && result.charAt(result.length() - 1) == 'X') {
+            result.deleteCharAt(result.length() - 1);
+        }
         return result.toString();
     }
 
