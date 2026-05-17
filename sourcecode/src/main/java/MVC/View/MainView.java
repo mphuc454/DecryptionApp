@@ -58,6 +58,9 @@ public class MainView extends JFrame {
     public MainView(){
         menuContent.setLayout(new BoxLayout(menuContent, BoxLayout.Y_AXIS));
         panelMenu.setLayout(new BorderLayout());
+        this.setSize(950, 600);
+        this.setTitle("SecurityApp");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         panelTruyenThong.setLayout(new BoxLayout(panelTruyenThong, BoxLayout.X_AXIS));
         panelTruyenThong.setBorder(BorderFactory.createTitledBorder("Mã hoá truyền thống"));

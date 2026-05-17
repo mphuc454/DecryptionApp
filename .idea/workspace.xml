@@ -4,49 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6df95087-1524-477a-925b-3620fbd059b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/JavaEncryptionApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/bcprov_jdk18on_1_84.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDemo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaEncryptionApp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bcprov-jdk18on-1.84.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/AsymmetricController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/HashController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/OtherController/SymmetricController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/AffineController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/CaesarController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/HillController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/SubstitutionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/TranspositionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Controller/TraditionalController/VigenereController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/AsymmetricCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/HashCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/OtherModel/SymmetricCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/AffineCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/CaesarCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/HillCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/SubstitutionCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/TranspositionCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/Model/TraditionalModel/VigenereCipher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/Display.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/MainView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewAsymmetric.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewHash.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/OtherView/ViewSymmetric.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewAffine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewCaesar.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewHill.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewSubstitution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewTransposition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MVC/View/TraditionalView/ViewVigenere.java" beforeDir="false" />
-    </list>
+    <list default="true" id="6df95087-1524-477a-925b-3620fbd059b5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,34 +21,34 @@
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="3DoKOcK6nnvLYbn3w8KhOBU8VRu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Display.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/MyFolder/MySkills/ProgrammingLanguage/JavaProject/JavaEncryptionApp",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Display.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MyFolder/MySkills/ProgrammingLanguage/JavaProject/JavaEncryptionApp&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -107,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1778942951357</updated>
       <workItem from="1778942952520" duration="51000" />
+      <workItem from="1778949902261" duration="17000" />
     </task>
     <servers />
   </component>

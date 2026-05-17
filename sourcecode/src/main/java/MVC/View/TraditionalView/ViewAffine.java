@@ -45,6 +45,11 @@ public class ViewAffine extends JPanel {
         panel.add(btnSaveResult);
         panel.add(Box.createVerticalStrut(10));
         panel.add(btnClear);
+        JLabel lbAlgorithm = new JLabel("Tên thuật toán: Affine");
+        panel.add(Box.createVerticalStrut(10));
+        lbAlgorithm.setFont(new Font("Arial", Font.BOLD, 14));
+        lbAlgorithm.setForeground(Color.RED);
+        panel.add(lbAlgorithm);
         this.add(panel, BorderLayout.WEST);
         topWrapper.add(panel, BorderLayout.WEST);
         topWrapper.add(centerPanel, BorderLayout.CENTER);

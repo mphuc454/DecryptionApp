@@ -32,11 +32,16 @@ public class ViewSymmetric extends JPanel {
         btnBack = new JButton("QUAY LẠI");
         btnSaveResult = new JButton("LƯU KẾT QUẢ");
         btnClear = new JButton("XOÁ");
+        JLabel lbAlgorithm = new JLabel("Tên thuật toán: Đối xứng");
+        lbAlgorithm.setFont(new Font("Arial", Font.BOLD, 14));
+        lbAlgorithm.setForeground(Color.RED);
         panel.add(btnBack);
         panel.add(Box.createVerticalStrut(10));
         panel.add(btnSaveResult);
         panel.add(Box.createVerticalStrut(10));
         panel.add(btnClear);
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(lbAlgorithm );
         this.add(panel, BorderLayout.WEST);
 
         JPanel centerPanel = new JPanel(new BorderLayout(10, 10));
